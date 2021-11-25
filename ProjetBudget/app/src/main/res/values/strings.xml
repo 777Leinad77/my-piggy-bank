@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProjetBudget</string>
+    <string name="tab_text_1" translatable="false">Tab 1</string>
+    <string name="tab_text_2" translatable="false">Tab 2</string>
+    <string name="tab_text_3" translatable="false">Tab 3</string>
+
+
+</resources>
