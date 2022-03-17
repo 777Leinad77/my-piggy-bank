@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.PlaceholderFragment2">
+    tools:context=".ui.main2.PlaceholderFragment2">
 
     <TextView
         android:id="@+id/section_label2"
@@ -26,22 +26,12 @@
         android:id="@+id/id2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ca va"
+        android:text="Creation Budjet"
         app:layout_constraintBottom_toBottomOf="@+id/section_label2"
         app:layout_constraintEnd_toEndOf="@+id/section_label2"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/section_label2"
         app:layout_constraintTop_toTopOf="@+id/section_label2"
-        app:layout_constraintVertical_bias="0.346" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/section_label2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/section_label2"
-        app:layout_constraintTop_toTopOf="@+id/section_label2" />
+        app:layout_constraintVertical_bias="0.083" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

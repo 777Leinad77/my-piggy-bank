@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.PlaceholderFragment">
+    tools:context=".ui.main2.PlaceholderFragment">
 
     <TextView
         android:id="@+id/section_label1"
@@ -22,26 +22,15 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CPAUNBOUTON"
-        app:layout_constraintBottom_toBottomOf="@+id/section_label1"
-        app:layout_constraintEnd_toEndOf="@+id/section_label1"
-        app:layout_constraintStart_toStartOf="@+id/section_label1"
-        app:layout_constraintTop_toTopOf="@+id/section_label1" />
-
     <TextView
         android:id="@+id/id1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="salut"
+        android:layout_width="79dp"
+        android:layout_height="24dp"
+        android:text="Camember"
         app:layout_constraintBottom_toBottomOf="@+id/section_label1"
         app:layout_constraintEnd_toEndOf="@+id/section_label1"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/section_label1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.362" />
+        app:layout_constraintVertical_bias="0.087" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
