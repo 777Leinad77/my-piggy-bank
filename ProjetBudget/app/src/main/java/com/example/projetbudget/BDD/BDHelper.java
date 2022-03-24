@@ -19,6 +19,8 @@ public class BDHelper extends SQLiteOpenHelper {
         req = "create table Operation(OpLibelle text, "
                 + "MontantOp INTEGER, "
                 + "Date Date, "
+                + "Heur Heur,"
+                + "TypeOperation text,"
                 + "IdCateg INTEGER, "
                 + "IdProj INTEGER, "
                 + "FOREIGN KEY (IdCateg)"
@@ -33,17 +35,22 @@ public class BDHelper extends SQLiteOpenHelper {
                 + ");";
         db.execSQL(req);
         req = "create table Projet(Nom text, "
-                + "MontantProj INTEGER, "
-                + "DeadLine Date, "
+                + "Objectif INTEGER, "
+                + "DateCréation Date, "
+                + "DateObjectif Date,"
                 + "IdProj Integer PRIMARY KEY autoincrement "
                 + ");";
         db.execSQL(req);
         ContentValues cv = new ContentValues();
-        //cv.put("valeur", "Echec");
-        //db.insert("BujetTotal",null, cv);
-        cv.put("Type", "dépense");
+        cv.put("Type", "Vie quotidienne");
+        db.insert("BujetTotal",null, cv);
+        cv.put("Type", "Loisirs");
         db.insert("Categorie",null, cv);
-        cv.put("Type", "gain");
+        cv.put("Type", "Autres dépenses");
+        db.insert("Categorie",null, cv);
+        cv.put("Type", "Abonnements et Télephonie");
+        db.insert("Categorie",null, cv);
+        cv.put("Type", "Transports et véicules");
         db.insert("Categorie",null, cv);
     }
 

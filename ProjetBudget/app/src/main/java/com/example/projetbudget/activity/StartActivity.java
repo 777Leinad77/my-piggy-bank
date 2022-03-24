@@ -40,7 +40,7 @@ public class StartActivity extends AppCompatActivity {
             setContentView(R.layout.activity_start);
             //TextView text = (TextView) findViewById(R.id.textView);
             TextView erreur = (TextView) findViewById(R.id.textErreur);
-            EditText EDText = (EditText) findViewById(R.id.EDText);
+            //EditText EDText = (EditText) findViewById(R.id.EDText);
             Button boutton = (Button) findViewById(R.id.button);
             sgbd.open();
             String valeurPrécédante = sgbd.donnerLaValeur();
@@ -52,9 +52,11 @@ public class StartActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (v == boutton) {
+                        EditText EDText = (EditText) findViewById(R.id.EDText);
                         String valeur = EDText.getText().toString();
-                        Log.i("TextStart", "valeur de EDtext : "+valeur);
-                        if (valeur.matches("^[1-9]*") == true) {
+                        Log.i("TestED", "valeur de EDtext : "+valeur);
+                        if (valeur.length()>0 && valeur.matches("^[0-9]*")) {
+                            Log.i("TestValeur", "le if" + valeur);
                             sgbd.open();
                             sgbd.videValeur();
                             sgbd.creerValeur(valeur);
