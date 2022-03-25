@@ -16,10 +16,11 @@ public class BDHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String req = "create table BujetTotal(Valeur text);";
         db.execSQL(req);
-        req = "create table Operation(OpLibelle text, "
+        req = "create table Operation(IdOp INTEGER PRIMARY KEY autoincrement, "
+                + "NomOperation text, "
                 + "MontantOp INTEGER, "
                 + "Date Date, "
-                + "Heur Heur,"
+                //+ "Heur Heur,"
                 + "TypeOperation text,"
                 + "IdCateg INTEGER, "
                 + "IdProj INTEGER, "

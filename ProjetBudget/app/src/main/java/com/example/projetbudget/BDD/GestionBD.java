@@ -6,7 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.projetbudget.metier.TypeOperation;
+
 import java.util.ArrayList;
+import java.util.Date;
 
 public class GestionBD {
 
@@ -72,29 +75,33 @@ public class GestionBD {
         maBase.delete("bujetTotal",null, null);
     }
 
-    public ArrayList<String> donneLesType() {
-        ArrayList<String> lesType = new ArrayList<String>();
-        String req = "select Type from Categorie";
-        Cursor cursor = maBase.rawQuery(req,null,null);
-        int n = 0;
-        while (cursor.moveToNext()) {
-            lesType.add(cursor.getString(n));
-            n += 1;
+    public ArrayList<TypeOperation> getCateg(){
+        Log.i("TestBD","ouverture de getCateg");
+        ArrayList<TypeOperation> Categ = new ArrayList<TypeOperation>();
+        Log.i("TestBD","appré ArryList");
+        String req1 = "select IdCateg from Categorie";
+        Cursor cursor1 = maBase.rawQuery(req1,null,null);
+        Log.i("TestBD","cursor1 : ");
+        String req2 = "select Type from Categorie";
+        Cursor cursor2 = maBase.rawQuery(req2,null,null);
+        Log.i("TestBD","cursor2 : ");
+        TypeOperation cat0 = new TypeOperation(0, "choisir un type", "categOPe");
+        Categ.add(cat0);
+        while (cursor1.moveToNext() && cursor2.moveToNext()) {
+            TypeOperation cat = new TypeOperation(cursor1.getInt(0), cursor2.getString(0), "categOPe");
+            Categ.add(cat);
         }
-        Log.i("TestBD","donnerLesType la list "+lesType);
-        return lesType;
+        return Categ;
+    }
+    public void nouvOperation(String nom, int montant, String type, int categ ) {
+        Date date = new Date();
+        ContentValues cv = new ContentValues();
+        cv.put("NomOperation",nom);
+        cv.put("MontantOp", montant);
+        cv.put("Date", String.valueOf(date));
+        cv.put("TypeOperation",type);
+        cv.put("IdCateg", categ);
+        maBase.insert("Operation",null, cv);
     }
 
-    public ArrayList<String> donneLesOperation() {
-        ArrayList<String> LesOperation = new ArrayList<String>();
-        String req = "select MontantOp from Operation";
-        Cursor cursor = maBase.rawQuery(req,null,null);
-        int n = 0;
-        while (cursor.moveToNext()) {
-            LesOperation.add(cursor.getString(n));
-            n += 1;
-        }
-        Log.i("TestBD","donnerLesType la list "+LesOperation);
-        return LesOperation;
-    }
 }

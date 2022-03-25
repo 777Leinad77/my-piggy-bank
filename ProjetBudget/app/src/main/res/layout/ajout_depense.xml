@@ -32,8 +32,7 @@
         app:layout_constraintEnd_toEndOf="@+id/ETMontantOpeS"
         app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="@+id/ETMontantOpeS"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89" />
+        app:layout_constraintTop_toBottomOf="@+id/ETMontantOpeS" />
 
     <TextView
         android:id="@+id/nomOpeS"
@@ -124,5 +123,21 @@
             android:text="Gain"
             tools:layout_editor_absoluteX="219dp" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/erreurNom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/ETNomOpeS"
+        app:layout_constraintStart_toStartOf="@+id/ETNomOpeS"
+        app:layout_constraintTop_toBottomOf="@+id/ETNomOpeS" />
+
+    <TextView
+        android:id="@+id/erreurMontant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/ETMontantOpeS"
+        app:layout_constraintStart_toStartOf="@+id/ETMontantOpeS"
+        app:layout_constraintTop_toBottomOf="@+id/ETMontantOpeS" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
