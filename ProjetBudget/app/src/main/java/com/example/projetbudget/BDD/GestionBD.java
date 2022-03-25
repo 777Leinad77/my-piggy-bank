@@ -46,29 +46,23 @@ public class GestionBD {
     }
 
     public void valeurMoins(String valeur) {
-        ContentValues cv = new ContentValues();
-        cv.put("MontantOp","-"+valeur);
-        maBase.insert("Operation",null, cv);
         String res = donnerLaValeur();
         Log.i("TestBD","valeur de res : "+res+", de valeur : "+valeur);
         int intres = Integer.parseInt(res);
         int intvaleur = Integer.parseInt(valeur);
         int calc = intres-intvaleur;
         Log.i("TestBD","valeur apré calcul "+calc);
-        creerValeur(""+calc+"");
+        creerValeur(String.valueOf(calc));
     }
 
     public void valeurPlus(String valeur) {
-        ContentValues cv = new ContentValues();
-        cv.put("MontantOp","+"+valeur);
-        maBase.insert("Operation",null, cv);
         String res = donnerLaValeur();
         Log.i("TestBD","valeur de res : "+res+", de valeur : "+valeur);
         int intres = Integer.parseInt(res);
         int intvaleur = Integer.parseInt(valeur);
         int calc = intres+intvaleur;
         Log.i("TestBD","valeur apré calcul "+calc);
-        creerValeur(""+calc+"");
+        creerValeur(String.valueOf(calc));
     }
 
     public void videValeur() {

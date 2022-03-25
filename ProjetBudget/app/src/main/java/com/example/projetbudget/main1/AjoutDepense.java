@@ -106,15 +106,21 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                 int radioId = RG.getCheckedRadioButtonId();
                 RB = rootView.findViewById(radioId);
 
-                String nomS = nom.getText().toString();
-                String montantS = montant.getText().toString();
+                String nomValeur = nom.getText().toString();
+                String montantValeur = montant.getText().toString();
 
-                Log.i("TestAjoutDepense", "nous avons : " + RB.getText() + " / " + nomS + " / " + idcat + " / " + montantS + " .");
-                if (nomS.length()>0 && montantS.length()>0 ) {
+                Log.i("TestAjoutDepense", "nous avons : " + RB.getText() + " / " + nomValeur + " / " + idcat + " / " + montantValeur + " .");
+                if (nomValeur.length()>0 && montantValeur.length()>0 ) {
                     int montantSint = Integer.parseInt(montant.getText().toString());
                     if (montantSint != 0) {
                         sgbd.open();
-                        sgbd.nouvOperation(nomS, montantSint, String.valueOf(RB.getText()), idcat);
+                        sgbd.nouvOperation(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
+                        if (RB.getText() == "Gain"){
+                            sgbd.valeurPlus(montantValeur);
+                        }else if(RB.getText() == "Dépense") {
+                            sgbd.valeurMoins(montantValeur);
+                        }
+                        sgbd.close();
                         startActivity(intent);
                     }else {
                         EMontant.setText("Le montant doit être supérieur a 0");
