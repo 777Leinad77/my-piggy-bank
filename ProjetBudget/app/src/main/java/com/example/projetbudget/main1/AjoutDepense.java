@@ -110,7 +110,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                 String montantValeur = montant.getText().toString();
 
                 Log.i("TestAjoutDepense", "nous avons : " + RB.getText() + " / " + nomValeur + " / " + idcat + " / " + montantValeur + " .");
-                if (nomValeur.length()>0 && montantValeur.length()>0 ) {
+                if (nomValeur.length()>0 && montantValeur.length()>0 && idcat != 0) {
                     int montantSint = Integer.parseInt(montant.getText().toString());
                     if (montantSint != 0) {
                         sgbd.open();
