@@ -24,7 +24,6 @@ import com.example.projetbudget.databinding.AjoutDepenseBinding;
 import com.example.projetbudget.metier.TypeOperation;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -70,14 +69,14 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
 
         spinner = rootView.findViewById(R.id.STypeOpeS);
 
-        RG = rootView.findViewById((R.id.RGOpeS));
+        RG = rootView.findViewById((R.id.RGOpeP));
 
         nom = rootView.findViewById(R.id.ETNomOpeS);
         montant = rootView.findViewById(R.id.ETMontantOpeS);
 
-        ENom = rootView.findViewById(R.id.erreurNom);
-        EMontant = rootView.findViewById(R.id.erreurMontant);
-        EType = rootView.findViewById(R.id.erreurType);
+        ENom = rootView.findViewById(R.id.erreurNomS);
+        EMontant = rootView.findViewById(R.id.erreurMontantS);
+        EType = rootView.findViewById(R.id.erreurTypeS);
 
         sgbd.open();
         categ = sgbd.getCateg();
@@ -99,7 +98,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
 
-        ad = rootView.findViewById(R.id.ad);
+        ad = rootView.findViewById(R.id.adS);
         ad.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View c) {

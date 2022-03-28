@@ -7,8 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".main.SuppressionProjet">
 
+    <Button
+        android:id="@+id/adP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour Gestion Projet"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="601dp" />
+
     <TextView
-        android:id="@+id/suppressiondepense"
+        android:id="@+id/ajoutdepense2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -17,20 +25,101 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout4"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout5"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
     <TextView
-        android:id="@+id/SupressDepense"
+        android:id="@+id/nomOpeP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Supression depense"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/suppressiondepense"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/suppressiondepense"
-        app:layout_constraintVertical_bias="0.094" />
+        android:text=" Nom :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="361dp" />
+
+    <EditText
+        android:id="@+id/ETNomOpeP"
+        android:layout_width="217dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="551dp" />
+
+    <Spinner
+        android:id="@+id/STypeOpeP"
+        android:layout_width="205dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="303dp" />
+
+    <TextView
+        android:id="@+id/typeOpeP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="342dp" />
+
+    <TextView
+        android:id="@+id/montantOpeP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Montant :"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="323dp" />
+
+    <EditText
+        android:id="@+id/ETMontantOpeP"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="353dp" />
+
+    <RadioGroup
+        android:id="@+id/RGOpeP"
+        android:layout_width="233dp"
+        android:layout_height="148dp"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="403dp">
+
+        <RadioButton
+            android:id="@+id/RBDepense"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Dépense" />
+
+        <RadioButton
+            android:id="@+id/RBGain"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Gain"
+            tools:layout_editor_absoluteX="219dp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/erreurNomP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="205dp"
+        tools:layout_editor_absoluteY="681dp" />
+
+    <TextView
+        android:id="@+id/erreurMontantP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="681dp" />
+
+    <TextView
+        android:id="@+id/erreurTypeP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="681dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
