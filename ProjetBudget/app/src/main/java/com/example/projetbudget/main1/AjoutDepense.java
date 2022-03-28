@@ -121,9 +121,12 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                     ENom.setText("Le nom doit comporter au moins un caractère");
                     bool1 = false;
                 }
-                boolean bool2;
-                int montantSint = Integer.parseInt(montant.getText().toString());
+                Log.i("TestAjoutDepense", "bool1 est : " + bool1);
+
+                boolean bool2 = true;
+                int montantSint;
                 if (montantValeur.length()>0) {
+                    montantSint = Integer.parseInt(montantValeur);
                     if (montantSint != 0) {
                         EMontant.setText("");
                         bool2 = true;
@@ -135,6 +138,8 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                     EMontant.setText("Le montant doit comporter au moins un caractère");
                     bool2 =false;
                 }
+                Log.i("TestAjoutDepense", "bool2 est : " + bool2);
+
                 boolean bool3;
                 if (idcat != 0) {
                     EType.setText("");
@@ -143,8 +148,10 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                     EType.setText("Vous devez choisir un type");
                     bool3 = false;
                 }
+                Log.i("TestAjoutDepense", "bool3 est : " + bool3);
 
                 if (bool1 == true && bool2 == true && bool3 == true) {
+                    montantSint = Integer.parseInt(montantValeur);
                         sgbd.open();
                         sgbd.nouvOperation(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
                         if (RB.getText() == "Gain"){
