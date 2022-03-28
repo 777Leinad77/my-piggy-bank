@@ -46,6 +46,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
     Spinner spinner;
     TextView ENom;
     TextView EMontant;
+    TextView EType;
     int idcat;
 
 
@@ -76,6 +77,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
 
         ENom = rootView.findViewById(R.id.erreurNom);
         EMontant = rootView.findViewById(R.id.erreurMontant);
+        EType = rootView.findViewById(R.id.erreurType);
 
         sgbd.open();
         categ = sgbd.getCateg();
@@ -110,9 +112,39 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                 String montantValeur = montant.getText().toString();
 
                 Log.i("TestAjoutDepense", "nous avons : " + RB.getText() + " / " + nomValeur + " / " + idcat + " / " + montantValeur + " .");
-                if (nomValeur.length()>0 && montantValeur.length()>0 && idcat != 0) {
-                    int montantSint = Integer.parseInt(montant.getText().toString());
+
+                boolean bool1;
+                if (nomValeur.length()>0 ) {
+                    ENom.setText("");
+                    bool1 = true;
+                }else {
+                    ENom.setText("Le nom doit comporter au moins un caractère");
+                    bool1 = false;
+                }
+                boolean bool2;
+                int montantSint = Integer.parseInt(montant.getText().toString());
+                if (montantValeur.length()>0) {
                     if (montantSint != 0) {
+                        EMontant.setText("");
+                        bool2 = true;
+                    }else {
+                        EMontant.setText("Le montant doit être supérieur a 0");
+                        bool2 =false;
+                    }
+                }else {
+                    EMontant.setText("Le montant doit comporter au moins un caractère");
+                    bool2 =false;
+                }
+                boolean bool3;
+                if (idcat != 0) {
+                    EType.setText("");
+                    bool3 = true;
+                }else {
+                    EType.setText("Vous devez choisir un type");
+                    bool3 = false;
+                }
+
+                if (bool1 == true && bool2 == true && bool3 == true) {
                         sgbd.open();
                         sgbd.nouvOperation(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
                         if (RB.getText() == "Gain"){
@@ -122,12 +154,6 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                         }
                         sgbd.close();
                         startActivity(intent);
-                    }else {
-                        EMontant.setText("Le montant doit être supérieur a 0");
-                    }
-                }else {
-                    ENom.setText("Le nom doit comporter au moins un caractère");
-                    EMontant.setText("Le montant doit comporter au moins un caractère");
                 }
             }
         }
