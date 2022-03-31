@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3388fe24-56e5-461e-8306-a889d36e5f18" name="Default Changelist" comment="" />
+    <list default="true" id="11b2a25a-bc30-46aa-b2ef-5f6b825007b2" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="21PkUvhxZnyGrZcAAPXTbIguKpT" />
+  <component name="ProjectId" id="27129O66KF5I62b0jjajsv5nbUR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,16 +24,15 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ProjetBudget" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3388fe24-56e5-461e-8306-a889d36e5f18" name="Default Changelist" comment="" />
-      <created>1637850133869</created>
+      <changelist id="11b2a25a-bc30-46aa-b2ef-5f6b825007b2" name="Default Changelist" comment="" />
+      <created>1648473118664</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1637850133869</updated>
+      <updated>1648473118664</updated>
     </task>
     <servers />
   </component>
