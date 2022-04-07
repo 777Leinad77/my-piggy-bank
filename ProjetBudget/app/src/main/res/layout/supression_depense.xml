@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retour Gestion Projet"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="601dp" />
+        app:layout_constraintStart_toStartOf="@+id/ETNomOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/ETNomOpeP" />
 
     <TextView
         android:id="@+id/ajoutdepense2"
@@ -35,8 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" Nom :"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="361dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/ETNomOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/RGOpeS"
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/ETNomOpeP"
@@ -44,31 +45,34 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="551dp" />
+        app:layout_constraintStart_toStartOf="@+id/RGOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/RGOpeP" />
 
     <Spinner
         android:id="@+id/STypeOpeP"
         android:layout_width="205dp"
         android:layout_height="50dp"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="303dp" />
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="@+id/editTextDate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
     <TextView
         android:id="@+id/typeOpeP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Type :"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="342dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/STypeOpeP"
+        app:layout_constraintTop_toTopOf="@+id/STypeOpeP"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/montantOpeP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Montant :"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="323dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/ETMontantOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/STypeOpeP"
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/ETMontantOpeP"
@@ -76,15 +80,15 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="353dp" />
+        app:layout_constraintStart_toStartOf="@+id/STypeOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/STypeOpeP" />
 
     <RadioGroup
         android:id="@+id/RGOpeP"
         android:layout_width="233dp"
         android:layout_height="148dp"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="403dp">
+        app:layout_constraintStart_toStartOf="@+id/ETMontantOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/ETMontantOpeP">
 
         <RadioButton
             android:id="@+id/RBDepense"
@@ -105,21 +109,51 @@
         android:id="@+id/erreurNomP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="681dp" />
+        app:layout_constraintEnd_toEndOf="@+id/ETNomOpeP"
+        app:layout_constraintStart_toStartOf="@+id/ETNomOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/ETNomOpeP" />
 
     <TextView
         android:id="@+id/erreurMontantP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="681dp" />
+        app:layout_constraintEnd_toEndOf="@+id/ETMontantOpeP"
+        app:layout_constraintStart_toStartOf="@+id/ETMontantOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/ETMontantOpeP" />
 
     <TextView
         android:id="@+id/erreurTypeP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="681dp" />
+        app:layout_constraintEnd_toEndOf="@+id/STypeOpeP"
+        app:layout_constraintStart_toStartOf="@+id/STypeOpeP"
+        app:layout_constraintTop_toBottomOf="@+id/STypeOpeP" />
+
+    <Spinner
+        android:id="@+id/SFrequenceP"
+        android:layout_width="205dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="@+id/SFrequenceP"
+        app:layout_constraintTop_toBottomOf="@+id/SFrequenceP" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate"
+        app:layout_constraintVertical_bias="0.423"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

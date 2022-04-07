@@ -4,5 +4,12 @@
     <string name="tab_text_2" translatable="false">Tab 2</string>
     <string name="tab_text_3" translatable="false">Tab 3</string>
 
-
+    <string-array name="SFrequenceP">
+        <item>journalière</item>
+        <item>hebdomadaire</item>
+        <item>mensuel</item>
+        <item>trimestriel</item>
+        <item>semestriel</item>
+        <item>annuel</item>
+    </string-array>
 </resources>

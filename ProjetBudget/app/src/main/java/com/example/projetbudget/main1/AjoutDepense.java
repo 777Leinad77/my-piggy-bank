@@ -69,7 +69,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
 
         spinner = rootView.findViewById(R.id.STypeOpeS);
 
-        RG = rootView.findViewById((R.id.RGOpeP));
+        RG = rootView.findViewById((R.id.RGOpeS));
 
         nom = rootView.findViewById(R.id.ETNomOpeS);
         montant = rootView.findViewById(R.id.ETMontantOpeS);
@@ -82,6 +82,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
         categ = sgbd.getCateg();
         sgbd.close();
 
+        //spiner---------
         spinner.setOnItemSelectedListener(this);
         List<String> categories = new ArrayList<String>();
         for(TypeOperation s : categ){
@@ -97,6 +98,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+        //----------------
 
         ad = rootView.findViewById(R.id.adS);
         ad.setOnClickListener(new View.OnClickListener() {
@@ -163,7 +165,6 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                 }
             }
         }
-
     });
         return rootView;
     }
