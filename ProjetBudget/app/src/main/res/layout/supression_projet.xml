@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.SuppressionProjet">
+    tools:context=".projet.SuppressionProjet">
 
     <TextView
         android:id="@+id/suppressionprojet"

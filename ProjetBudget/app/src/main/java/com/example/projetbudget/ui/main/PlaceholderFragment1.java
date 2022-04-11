@@ -1,27 +1,32 @@
-package com.example.projetbudget.main;
+package com.example.projetbudget.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.projetbudget.R;
-import com.example.projetbudget.databinding.ModificationProjetBinding;
+import com.example.projetbudget.databinding.FragmentMainBinding;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class ModificationProjet extends Fragment {
+public class PlaceholderFragment1 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private ModificationProjetBinding binding;
+    private PageViewModel pageViewModel;
+    private FragmentMainBinding binding;
+    Intent intent3;
+    Button btn3;
 
-    public static ModificationProjet newInstance(int index) {
-        ModificationProjet fragment = new ModificationProjet();
+    public static PlaceholderFragment1 newInstance(int index) {
+        PlaceholderFragment1 fragment = new PlaceholderFragment1();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -33,9 +38,8 @@ public class ModificationProjet extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        View rootView= inflater.inflate(R.layout.modification_projet, container ,false);
 
-
+        View rootView = inflater.inflate(R.layout.fragment1, container, false);
         return rootView;
     }
 

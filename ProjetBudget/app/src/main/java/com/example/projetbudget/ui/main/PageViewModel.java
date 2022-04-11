@@ -1,4 +1,4 @@
-package com.example.projetbudget.ui.main2;
+package com.example.projetbudget.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

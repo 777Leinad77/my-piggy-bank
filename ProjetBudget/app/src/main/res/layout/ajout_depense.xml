@@ -6,7 +6,7 @@
     android:id="@+id/constraintLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.projetbudget.main1.AjoutDepense">
+    tools:context="com.example.projetbudget.depanse.AjoutDepense">
 
     <Button
         android:id="@+id/validerS"

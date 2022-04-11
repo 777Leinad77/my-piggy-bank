@@ -1,4 +1,4 @@
-package com.example.projetbudget.main;
+package com.example.projetbudget.projet;
 
 import android.content.Context;
 

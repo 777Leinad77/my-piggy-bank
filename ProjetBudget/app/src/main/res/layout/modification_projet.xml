@@ -6,7 +6,7 @@
     android:id="@+id/constraintLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.SectionsPagerGestionProjet">
+    tools:context=".projet.SectionsPagerGestionProjet">
 
     <TextView
         android:id="@+id/modificationprojet"

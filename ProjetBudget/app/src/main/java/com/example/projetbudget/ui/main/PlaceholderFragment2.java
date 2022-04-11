@@ -1,4 +1,4 @@
-package com.example.projetbudget.main;
+package com.example.projetbudget.ui.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,19 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.projetbudget.R;
-import com.example.projetbudget.databinding.SupressionProjetBinding;
+import com.example.projetbudget.databinding.FragmentMainBinding;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class SuppressionProjet extends Fragment {
+public class PlaceholderFragment2 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private SupressionProjetBinding binding;
+    private PageViewModel pageViewModel;
+    private FragmentMainBinding binding2;
 
-    public static SuppressionProjet newInstance(int index) {
-        SuppressionProjet fragment = new SuppressionProjet();
+    public static PlaceholderFragment2 newInstance(int index) {
+        PlaceholderFragment2 fragment = new PlaceholderFragment2();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -33,7 +34,7 @@ public class SuppressionProjet extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.supression_projet, container ,false);
+        View rootView = inflater.inflate(R.layout.fragment2, container ,false);
 
 
         return rootView;
@@ -42,6 +43,6 @@ public class SuppressionProjet extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        binding2 = null;
     }
 }

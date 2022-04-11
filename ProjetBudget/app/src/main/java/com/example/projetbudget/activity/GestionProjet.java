@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.projetbudget.databinding.GestionProjetBinding;
-import com.example.projetbudget.main.SectionsPagerGestionProjet;
+import com.example.projetbudget.projet.SectionsPagerGestionProjet;
 import com.google.android.material.tabs.TabLayout;
 
 public class GestionProjet extends AppCompatActivity {

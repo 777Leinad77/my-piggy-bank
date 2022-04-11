@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.projetbudget.databinding.GestionDepenseBinding;
-import com.example.projetbudget.main1.SectionsPagerGestionDepense;
+import com.example.projetbudget.depanse.SectionsPagerGestionDepense;
 import com.google.android.material.tabs.TabLayout;
 
 public class GestionDepense extends AppCompatActivity {

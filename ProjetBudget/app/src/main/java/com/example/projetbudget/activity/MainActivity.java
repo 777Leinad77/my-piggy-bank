@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.projetbudget.databinding.ActivityMainBinding;
-import com.example.projetbudget.ui.main2.SectionsPagerAdapter;
+import com.example.projetbudget.ui.main.SectionsPagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;

@@ -1,4 +1,4 @@
-package com.example.projetbudget.ui.main2;
+package com.example.projetbudget.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
