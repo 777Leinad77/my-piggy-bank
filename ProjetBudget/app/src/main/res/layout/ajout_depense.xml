@@ -9,14 +9,13 @@
     tools:context="com.example.projetbudget.main1.AjoutDepense">
 
     <Button
-        android:id="@+id/adS"
+        android:id="@+id/validerS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Retour Gestion Projet"
+        android:text="valider"
         app:layout_constraintBottom_toTopOf="@+id/ajoutdepense"
-        app:layout_constraintEnd_toEndOf="@+id/ETMontantOpeS"
-        app:layout_constraintHorizontal_bias="0.315"
-        app:layout_constraintStart_toStartOf="@+id/ETMontantOpeS"
+        app:layout_constraintEnd_toStartOf="@+id/retourS"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETMontantOpeS" />
 
     <TextView
@@ -40,15 +39,13 @@
         android:layout_height="wrap_content"
         android:text=" Nom :"
         app:layout_constraintBottom_toBottomOf="@+id/ETNomOpeS"
-        app:layout_constraintEnd_toStartOf="@+id/ETNomOpeS"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/typeOpeS"
         app:layout_constraintTop_toTopOf="@+id/ETNomOpeS" />
 
     <EditText
         android:id="@+id/ETNomOpeS"
-        android:layout_width="217dp"
+        android:layout_width="205dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="40dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/STypeOpeS"
@@ -60,7 +57,6 @@
         android:id="@+id/STypeOpeS"
         android:layout_width="205dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="81dp"
         app:layout_constraintBottom_toTopOf="@+id/ETMontantOpeS"
         app:layout_constraintEnd_toEndOf="@+id/ETNomOpeS"
         app:layout_constraintHorizontal_bias="0.0"
@@ -73,8 +69,7 @@
         android:layout_height="wrap_content"
         android:text="Type :"
         app:layout_constraintBottom_toBottomOf="@+id/STypeOpeS"
-        app:layout_constraintEnd_toEndOf="@+id/nomOpeS"
-        app:layout_constraintStart_toStartOf="@+id/nomOpeS"
+        app:layout_constraintStart_toStartOf="@+id/montantOpeS"
         app:layout_constraintTop_toTopOf="@+id/STypeOpeS"
         app:layout_constraintVertical_bias="0.451" />
 
@@ -84,18 +79,17 @@
         android:layout_height="wrap_content"
         android:text="Montant :"
         app:layout_constraintBottom_toBottomOf="@+id/ETMontantOpeS"
-        app:layout_constraintEnd_toEndOf="@+id/typeOpeS"
-        app:layout_constraintHorizontal_bias="0.409"
-        app:layout_constraintStart_toStartOf="@+id/typeOpeS"
+        app:layout_constraintEnd_toStartOf="@+id/ETMontantOpeS"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ETMontantOpeS" />
 
     <EditText
         android:id="@+id/ETMontantOpeS"
-        android:layout_width="wrap_content"
+        android:layout_width="205dp"
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/adS"
+        app:layout_constraintBottom_toTopOf="@+id/validerS"
         app:layout_constraintEnd_toEndOf="@+id/STypeOpeS"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/STypeOpeS"
@@ -147,5 +141,15 @@
         app:layout_constraintEnd_toEndOf="@+id/STypeOpeS"
         app:layout_constraintStart_toStartOf="@+id/STypeOpeS"
         app:layout_constraintTop_toBottomOf="@+id/STypeOpeS" />
+
+    <Button
+        android:id="@+id/retourS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="retour"
+        app:layout_constraintBottom_toBottomOf="@+id/validerS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/validerS"
+        app:layout_constraintTop_toTopOf="@+id/validerS" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

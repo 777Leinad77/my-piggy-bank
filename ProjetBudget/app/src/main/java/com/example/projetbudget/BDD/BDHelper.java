@@ -22,12 +22,17 @@ public class BDHelper extends SQLiteOpenHelper {
                 + "Date Date, "
                 //+ "Heur Heur,"
                 + "TypeOperation text,"
+                + "DateFrequ Date, "
+                + "TypeFrequence text, "
                 + "IdCateg INTEGER, "
                 + "IdProj INTEGER, "
+                + "IdFrequ INTEGER, "
                 + "FOREIGN KEY (IdCateg)"
                 + "REFERENCES Categorie (IdCateg),"
                 + "FOREIGN KEY (IdProj)"
-                + "REFERENCES Projet (IdProj));";
+                + "REFERENCES Projet (IdProj),"
+                + "FOREIGN KEY (IdFrequ)"
+                + "REFERENCES Frquence (IdFrequ));";
         db.execSQL(req);
         req = "create table Categorie("
                 //+ "CategLibelle text, "
@@ -42,17 +47,36 @@ public class BDHelper extends SQLiteOpenHelper {
                 + "IdProj Integer PRIMARY KEY autoincrement "
                 + ");";
         db.execSQL(req);
-        ContentValues cv = new ContentValues();
-        cv.put("Type", "Vie quotidienne");
-        db.insert("BujetTotal",null, cv);
-        cv.put("Type", "Loisirs");
-        db.insert("Categorie",null, cv);
-        cv.put("Type", "Autres dépenses");
-        db.insert("Categorie",null, cv);
-        cv.put("Type", "Abonnements et Télephonie");
-        db.insert("Categorie",null, cv);
-        cv.put("Type", "Transports et véicules");
-        db.insert("Categorie",null, cv);
+        req = "create table Frquence("
+                + "Type text, "
+                + "IdFrequ INTEGER PRIMARY KEY autoincrement "
+                + ");";
+        db.execSQL(req);
+        ContentValues cv1 = new ContentValues();
+        cv1.put("Type", "Vie quotidienne");
+        db.insert("Categorie",null, cv1);
+        cv1.put("Type", "Loisirs");
+        db.insert("Categorie",null, cv1);
+        cv1.put("Type", "Autres dépenses");
+        db.insert("Categorie",null, cv1);
+        cv1.put("Type", "Abonnements et Télephonie");
+        db.insert("Categorie",null, cv1);
+        cv1.put("Type", "Transports et véhicules");
+        db.insert("Categorie",null, cv1);
+
+        ContentValues cv2 = new ContentValues();
+        cv2.put("Type", "journalière");
+        db.insert("Frquence",null, cv2);
+        cv2.put("Type", "hebdomadaire");
+        db.insert("Frquence",null, cv2);
+        cv2.put("Type", "mensuel");
+        db.insert("Frquence",null, cv2);
+        cv2.put("Type", "trimestriel");
+        db.insert("Frquence",null, cv2);
+        cv2.put("Type", "semestriel");
+        db.insert("Frquence",null, cv2);
+        cv2.put("Type", "annuel");
+        db.insert("Frquence",null, cv2);
     }
 
     @Override

@@ -37,7 +37,8 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
     private AjoutDepenseBinding binding;
     ArrayList<TypeOperation> categ = new ArrayList<TypeOperation>();
     Intent intent;
-    Button ad;
+    Button ad1;
+    Button ad2;
     RadioGroup RG;
     RadioButton RB;
     EditText nom;
@@ -86,7 +87,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
         spinner.setOnItemSelectedListener(this);
         List<String> categories = new ArrayList<String>();
         for(TypeOperation s : categ){
-            if(s.getLibelle()=="categOPe") {
+            if(s.getLibelle()=="categOpe") {
                 categories.add(s.getType());
             }
         }
@@ -100,11 +101,11 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
         spinner.setAdapter(dataAdapter);
         //----------------
 
-        ad = rootView.findViewById(R.id.adS);
-        ad.setOnClickListener(new View.OnClickListener() {
+        ad1 = rootView.findViewById(R.id.validerS);
+        ad1.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View c) {
-            if (c == ad) {
+            if (c == ad1) {
 
                 int radioId = RG.getCheckedRadioButtonId();
                 RB = rootView.findViewById(radioId);
@@ -154,7 +155,7 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                 if (bool1 == true && bool2 == true && bool3 == true) {
                     montantSint = Integer.parseInt(montantValeur);
                         sgbd.open();
-                        sgbd.nouvOperation(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
+                        sgbd.nouvOperationS(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
                         if (RB.getText() == "Gain"){
                             sgbd.valeurPlus(montantValeur);
                         }else if(RB.getText() == "Dépense") {
@@ -166,6 +167,15 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
             }
         }
     });
+        ad2 = rootView.findViewById(R.id.retourS);
+        ad2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View c) {
+                if (c == ad2) {
+                    startActivity(intent);
+                }
+            }
+        });
         return rootView;
     }
     @Override

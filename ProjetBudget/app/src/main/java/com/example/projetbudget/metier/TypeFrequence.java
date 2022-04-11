@@ -1,13 +1,13 @@
 package com.example.projetbudget.metier;
 
-public class Frequence {
+public class TypeFrequence {
 
         private int id;
         private String type;
         private String libelle;
 
 
-        public Frequence(int id, String type, String libelle){
+        public TypeFrequence(int id, String type, String libelle){
             this.id = id;
             this.type = type;
             this.libelle = libelle;

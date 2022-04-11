@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.projetbudget.metier.TypeFrequence;
 import com.example.projetbudget.metier.TypeOperation;
 
 import java.util.ArrayList;
@@ -79,15 +80,36 @@ public class GestionBD {
         String req2 = "select Type from Categorie";
         Cursor cursor2 = maBase.rawQuery(req2,null,null);
         Log.i("TestBD","cursor2 : ");
-        TypeOperation cat0 = new TypeOperation(0, "choisir un type", "categOPe");
+        TypeOperation cat0 = new TypeOperation(0, "choisir un type", "categOpe");
         Categ.add(cat0);
         while (cursor1.moveToNext() && cursor2.moveToNext()) {
-            TypeOperation cat = new TypeOperation(cursor1.getInt(0), cursor2.getString(0), "categOPe");
+            TypeOperation cat = new TypeOperation(cursor1.getInt(0), cursor2.getString(0), "categOpe");
             Categ.add(cat);
         }
         return Categ;
+
     }
-    public void nouvOperation(String nom, int montant, String type, int categ ) {
+
+    public ArrayList<TypeFrequence> getFraqu() {
+        Log.i("TestBD", "ouverture de getCateg");
+        ArrayList<TypeFrequence> Frequ = new ArrayList<TypeFrequence>();
+        Log.i("TestBD", "appré ArryList");
+        String req1 = "select IdFrequ from Frquence";
+        Cursor cursor1 = maBase.rawQuery(req1, null, null);
+        Log.i("TestBD", "cursor1 : ");
+        String req2 = "select Type from Frquence";
+        Cursor cursor2 = maBase.rawQuery(req2, null, null);
+        Log.i("TestBD", "cursor2 : ");
+        TypeFrequence fre0 = new TypeFrequence(0, "choisir un type", "fequenceOpe");
+        Frequ.add(fre0);
+        while (cursor1.moveToNext() && cursor2.moveToNext()) {
+            TypeFrequence fre = new TypeFrequence(cursor1.getInt(0), cursor2.getString(0), "fequenceOpe");
+            Frequ.add(fre);
+        }
+        return Frequ;
+    }
+
+    public void nouvOperationS(String nom, int montant, String type, int categ ) {
         Date date = new Date();
         ContentValues cv = new ContentValues();
         cv.put("NomOperation",nom);
@@ -95,6 +117,19 @@ public class GestionBD {
         cv.put("Date", String.valueOf(date));
         cv.put("TypeOperation",type);
         cv.put("IdCateg", categ);
+        maBase.insert("Operation",null, cv);
+    }
+
+    public void nouvOperationP(String nom, int montant, String type, int categ, int frequ, String dateFrequ ) {
+        Date date = new Date();
+        ContentValues cv = new ContentValues();
+        cv.put("NomOperation",nom);
+        cv.put("MontantOp", montant);
+        cv.put("Date", String.valueOf(date));
+        cv.put("TypeOperation",type);
+        cv.put("IdCateg", categ);
+        cv.put("TypeFrequence", frequ);
+        cv.put("DateFrequ", dateFrequ);
         maBase.insert("Operation",null, cv);
     }
 

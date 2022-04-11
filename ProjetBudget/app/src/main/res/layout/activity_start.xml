@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".StartActivity">
 
-    <EditText
-        android:id="@+id/EDText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -31,6 +20,18 @@
         android:id="@+id/textErreur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/EDText"
-        app:layout_constraintTop_toBottomOf="@+id/EDText" />
+        app:layout_constraintTop_toBottomOf="@+id/EDText"
+        tools:layout_editor_absoluteX="205dp" />
+
+    <EditText
+        android:id="@+id/EDText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.212" />
 </androidx.constraintlayout.widget.ConstraintLayout>

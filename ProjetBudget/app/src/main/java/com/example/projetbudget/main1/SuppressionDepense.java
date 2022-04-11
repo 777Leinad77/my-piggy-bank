@@ -20,8 +20,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
+import com.example.projetbudget.activity.MainActivity;
 import com.example.projetbudget.databinding.SupressionDepenseBinding;
-import com.example.projetbudget.metier.Frequence;
+import com.example.projetbudget.metier.TypeFrequence;
 import com.example.projetbudget.metier.TypeOperation;
 
 import java.util.ArrayList;
@@ -35,19 +36,23 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private SupressionDepenseBinding binding;
-    ArrayList<Frequence> frquence = new ArrayList<Frequence>();
+    ArrayList<TypeFrequence> frequ = new ArrayList<TypeFrequence>();
     Spinner spinnerFrequ;
     ArrayList<TypeOperation> categ = new ArrayList<TypeOperation>();
     Spinner spinnerCateg;
     Intent intent;
-    Button ad;
+    Button ad1;
+    Button ad2;
     RadioGroup RG;
     RadioButton RB;
     EditText nom;
     EditText montant;
+    EditText dateFrequ;
     TextView ENom;
     TextView EMontant;
-    TextView EType;
+    TextView ETypeCateg;
+    TextView ETypeFrequ;
+    TextView EDateFrequ;
     int idcat;
     int idfrequ;
 
@@ -66,7 +71,7 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
 
         GestionBD sgbd = new GestionBD(getContext());
 
-        intent = new Intent(getContext(), com.example.projetbudget.activity.MainActivity.class);
+        intent = new Intent(getContext(), MainActivity.class);
         View rootView = inflater.inflate(R.layout.supression_depense, container ,false);
 
         spinnerFrequ = rootView.findViewById(R.id.SFrequenceP);
@@ -76,33 +81,24 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
 
         nom = rootView.findViewById(R.id.ETNomOpeP);
         montant = rootView.findViewById(R.id.ETMontantOpeP);
+        dateFrequ = rootView.findViewById(R.id.ETDateFrequOpeP);
 
         ENom = rootView.findViewById(R.id.erreurNomP);
         EMontant = rootView.findViewById(R.id.erreurMontantP);
-        EType = rootView.findViewById(R.id.erreurTypeP);
+        ETypeCateg = rootView.findViewById(R.id.erreurTypeCategP);
+        ETypeFrequ = rootView.findViewById(R.id.erreuTypeFrequP);
+        EDateFrequ = rootView.findViewById(R.id.erreuDateFrequP);
 
         sgbd.open();
         categ = sgbd.getCateg();
+        frequ = sgbd.getFraqu();
         sgbd.close();
-
-        Frequence F1 = new Frequence(1,"journalière","fequence");
-        frquence.add(F1);
-        Frequence F2 = new Frequence(2,"hebdomadaire","fequence");
-        frquence.add(F2);
-        Frequence F3 = new Frequence(3,"mensuel","fequence");
-        frquence.add(F3);
-        Frequence F4 = new Frequence(4,"trimestriel","fequence");
-        frquence.add(F4);
-        Frequence F5 = new Frequence(5,"semestriel","fequence");
-        frquence.add(F5);
-        Frequence F6 = new Frequence(6,"annuel","fequence");
-        frquence.add(F6);
 
         //spinerfrequence---------
         spinnerFrequ.setOnItemSelectedListener(this);
         List<String> fequences = new ArrayList<String>();
-        for(Frequence s : frquence){
-            if(s.getLibelle()=="fequence") {
+        for(TypeFrequence s : frequ){
+            if(s.getLibelle()=="fequenceOpe") {
                 fequences.add(s.getType());
             }
         }
@@ -120,7 +116,7 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
         spinnerCateg.setOnItemSelectedListener(this);
         List<String> categories = new ArrayList<String>();
         for(TypeOperation s : categ){
-            if(s.getLibelle()=="categOPe") {
+            if(s.getLibelle()=="categOpe") {
                 categories.add(s.getType());
             }
         }
@@ -134,19 +130,21 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
         spinnerCateg.setAdapter(dataAdapter2);
         //--------------------
 
-        //idfrequ = spinnerFrequ.getId();
-
-        ad = rootView.findViewById(R.id.adP);
-        ad.setOnClickListener(new View.OnClickListener() {
+        ad1 = rootView.findViewById(R.id.validerP);
+        ad1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View c) {
-                if (c == ad) {
+                if (c == ad1) {
 
                     int radioId = RG.getCheckedRadioButtonId();
                     RB = rootView.findViewById(radioId);
 
+                    idcat = spinnerCateg.getSelectedItemPosition();
+                    idfrequ = spinnerFrequ.getSelectedItemPosition();
+
                     String nomValeur = nom.getText().toString();
                     String montantValeur = montant.getText().toString();
+                    String DateFrequ = dateFrequ.getText().toString();
 
                     Log.i("TestSuppressionDepense", "nous avons : " + idfrequ + " / " + RB.getText() + " / " + nomValeur + " / " + idcat + " / " + montantValeur + " .");
 
@@ -179,18 +177,38 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
 
                     boolean bool3;
                     if (idcat != 0) {
-                        EType.setText("");
+                        ETypeCateg.setText("");
                         bool3 = true;
                     }else {
-                        EType.setText("Vous devez choisir un type");
+                        ETypeCateg.setText("Vous devez choisir un type");
                         bool3 = false;
                     }
                     Log.i("TestSuppressionDepense", "bool3 est : " + bool3);
 
-                    if (bool1 == true && bool2 == true && bool3 == true) {
+                    boolean bool4;
+                    if (DateFrequ.length()>0) {
+                        EDateFrequ.setText("");
+                        bool4 = true;
+                    }else {
+                        EDateFrequ.setText("La date doit comporter au moins un caractère");
+                        bool4 = false;
+                    }
+                    Log.i("TestSuppressionDepense", "bool4 est : " + bool4);
+
+                    boolean bool5;
+                    if (idfrequ != 0) {
+                        ETypeFrequ.setText("");
+                        bool5 = true;
+                    }else {
+                        ETypeFrequ.setText("Vous devez choisir un type");
+                        bool5 = false;
+                    }
+                    Log.i("TestSuppressionDepense", "bool5 est : " + bool5);
+
+                    if (bool1 == true && bool2 == true && bool3 == true && bool4 == true && bool5 == true) {
                         montantSint = Integer.parseInt(montantValeur);
                         sgbd.open();
-                        sgbd.nouvOperation(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
+                        sgbd.nouvOperationP(nomValeur, montantSint, String.valueOf(RB.getText()), idcat, idfrequ, DateFrequ);
                         if (RB.getText() == "Gain"){
                             sgbd.valeurPlus(montantValeur);
                         }else if(RB.getText() == "Dépense") {
@@ -199,6 +217,15 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
                         sgbd.close();
                         startActivity(intent);
                     }
+                }
+            }
+        });
+        ad2 = rootView.findViewById(R.id.retourP);
+        ad2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View c) {
+                if (c == ad2) {
+                    startActivity(intent);
                 }
             }
         });
@@ -213,9 +240,7 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String catchoisi = parent.getItemAtPosition(position).toString();
-        idcat = (int) id;
-        Log.i("TestAjoutDepense", catchoisi + " / " +idcat);
+
     }
 
     @Override
