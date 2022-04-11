@@ -128,7 +128,7 @@ public class GestionBD {
         cv.put("Date", String.valueOf(date));
         cv.put("TypeOperation",type);
         cv.put("IdCateg", categ);
-        cv.put("TypeFrequence", frequ);
+        cv.put("IdFrequ", frequ);
         cv.put("DateFrequ", dateFrequ);
         maBase.insert("Operation",null, cv);
     }

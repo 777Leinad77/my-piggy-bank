@@ -23,7 +23,6 @@ public class BDHelper extends SQLiteOpenHelper {
                 //+ "Heur Heur,"
                 + "TypeOperation text,"
                 + "DateFrequ Date, "
-                + "TypeFrequence text, "
                 + "IdCateg INTEGER, "
                 + "IdProj INTEGER, "
                 + "IdFrequ INTEGER, "
