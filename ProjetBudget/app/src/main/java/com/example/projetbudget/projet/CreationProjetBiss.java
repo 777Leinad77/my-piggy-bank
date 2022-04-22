@@ -17,7 +17,7 @@ import com.example.projetbudget.databinding.CreationProjetBinding;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class CreationProjet extends Fragment {
+public class CreationProjetBiss extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -27,8 +27,8 @@ public class CreationProjet extends Fragment {
     Button cp;
 
 
-    public static CreationProjet newInstance(int index) {
-        CreationProjet fragment = new CreationProjet();
+    public static CreationProjetBiss newInstance(int index) {
+        CreationProjetBiss fragment = new CreationProjetBiss();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);

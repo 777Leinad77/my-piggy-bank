@@ -38,7 +38,7 @@
     <connection id="9d0bd20d-1081-45c1-8cea-6f458144fd70" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.Projet" active-filter-id="" />
+    <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.Projet" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.Operation" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.Frquence" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.android_metadata" active-filter-id="" />

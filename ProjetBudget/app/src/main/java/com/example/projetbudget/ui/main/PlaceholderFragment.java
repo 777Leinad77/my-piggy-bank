@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.GestionDepense;
 import com.example.projetbudget.databinding.FragmentMainBinding;
+import com.example.projetbudget.projet.CreationProject;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -39,7 +40,8 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
+        //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
+        intent = new Intent(this.getContext(), CreationProject.class);
         intent1 = new Intent(this.getContext(), GestionDepense.class);
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 

@@ -126,9 +126,8 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                 Log.i("TestAjoutDepense", "bool1 est : " + bool1);
 
                 boolean bool2 = true;
-                int montantSint;
+                int montantSint = Integer.parseInt(montantValeur);
                 if (montantValeur.length()>0) {
-                    montantSint = Integer.parseInt(montantValeur);
                     if (montantSint != 0) {
                         EMontant.setText("");
                         bool2 = true;
@@ -153,7 +152,6 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                 Log.i("TestAjoutDepense", "bool3 est : " + bool3);
 
                 if (bool1 == true && bool2 == true && bool3 == true) {
-                    montantSint = Integer.parseInt(montantValeur);
                         sgbd.open();
                         sgbd.nouvOperationS(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
                         if (RB.getText() == "Gain"){

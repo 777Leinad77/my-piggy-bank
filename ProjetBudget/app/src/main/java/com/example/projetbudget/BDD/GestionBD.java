@@ -133,4 +133,13 @@ public class GestionBD {
         maBase.insert("Operation",null, cv);
     }
 
+    public void nouvProjet(String nom, int montant, String dateFin) {
+        Date date = new Date();
+        ContentValues cv = new ContentValues();
+        cv.put("Nom", nom);
+        cv.put("Objectif", montant);
+        cv.put("DateCréation", String.valueOf(date));
+        cv.put("DateObjectif", dateFin);
+        maBase.insert("Projet",null, cv);
+    }
 }

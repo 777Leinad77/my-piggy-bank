@@ -9,32 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetBudget">
-
+        <activity
+            android:name=".projet.CreationProject"
+            android:exported="false" />
         <activity
             android:name=".activity.GestionDepense"
             android:exported="true"
-            android:theme="@style/Theme.ProjetBudget.NoActionBar"/>
-
+            android:theme="@style/Theme.ProjetBudget.NoActionBar" />
         <activity
             android:name=".activity.GestionProjet"
             android:exported="true"
-            android:theme="@style/Theme.ProjetBudget.NoActionBar"/>
-
+            android:theme="@style/Theme.ProjetBudget.NoActionBar" />
         <activity
+            android:name=".activity.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.ProjetBudget.NoActionBar"
-            android:name=".activity.MainActivity" />
-
-            <activity
-                android:name=".activity.StartActivity"
-                android:exported="true"
-                android:theme="@style/Theme.ProjetBudget.NoActionBar">
+            android:theme="@style/Theme.ProjetBudget.NoActionBar" />
+        <activity
+            android:name=".activity.StartActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ProjetBudget.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> </activity>
-
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
