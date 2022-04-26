@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,9 +41,11 @@ public class CreationProject extends AppCompatActivity {
                     String PNom = nom.getText().toString();
                     int PMontant = Integer.parseInt(montant.getText().toString());
 
+                    Log.i("TestCreationProject", "nom = " + PNom + ", montant = " + PMontant);
                     sgbd.open();
                     sgbd.nouvProjet(PNom, PMontant, null);
                     sgbd.close();
+
                     startActivity(intent);
                 }
             }

@@ -41,6 +41,7 @@ public class BDHelper extends SQLiteOpenHelper {
         db.execSQL(req);
         req = "create table Projet(Nom text, "
                 + "Objectif INTEGER, "
+                + "ObjecActuelle INTEGER, "
                 + "DateCréation Date, "
                 + "DateObjectif Date,"
                 + "IdProj Integer PRIMARY KEY autoincrement "

@@ -2,6 +2,7 @@ package com.example.projetbudget.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,11 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projetbudget.Adapter.ProjetAdapter;
+import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.GestionDepense;
 import com.example.projetbudget.databinding.FragmentMainBinding;
@@ -28,6 +33,8 @@ public class PlaceholderFragment extends Fragment {
     Button gp;
     Intent intent1;
     Button gd;
+    RecyclerView RVProject;
+    String[] S1, S2, S3;
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -40,10 +47,26 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+        GestionBD sgbd = new GestionBD(getContext());
+
+        RVProject = rootView.findViewById(R.id.RVProject);
+
+        sgbd.open();
+        S1 = sgbd.NomProjet();
+        S2 = sgbd.ActuProjet();
+        S3 = sgbd.ObjecProjet();
+        sgbd.close();
+        Log.i("TestPlaceholderFragment", "S1 = " + S1[0] + " / " + S1[1]);
+
+        ProjetAdapter projetAdapter = new ProjetAdapter(getContext(), S1, S2, S3);
+        RVProject.setAdapter(projetAdapter);
+        RVProject.setLayoutManager(new LinearLayoutManager(getContext()));
+
         //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
         intent = new Intent(this.getContext(), CreationProject.class);
         intent1 = new Intent(this.getContext(), GestionDepense.class);
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         gp = rootView.findViewById(R.id.gp);
         gp.setOnClickListener(new View.OnClickListener() {

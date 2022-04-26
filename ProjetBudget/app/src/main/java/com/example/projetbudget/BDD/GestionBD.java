@@ -138,8 +138,113 @@ public class GestionBD {
         ContentValues cv = new ContentValues();
         cv.put("Nom", nom);
         cv.put("Objectif", montant);
+        cv.put("ObjecActuelle", 0);
         cv.put("DateCréation", String.valueOf(date));
         cv.put("DateObjectif", dateFin);
         maBase.insert("Projet",null, cv);
     }
+
+    //Les info des projet
+    //=============================================================================
+    public String[] NomProjet() {
+        String req = "select Nom from Projet";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        String[] Lnom = new String[cursor.getCount()];
+        int i = 0;
+        Log.i("TestBD", "cursor = " + cursor.getCount());
+        while (cursor.moveToNext()) {
+            Log.i("TestBD", "cursor = " + cursor.getString(0));
+            Lnom[i] = cursor.getString(0);
+            i += 1;
+        }
+        return Lnom;
+    }
+
+    public String[] ActuProjet() {
+        String req = "select ObjecActuelle from Projet";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        String[] Lactu = new String[cursor.getCount()];
+        int i = 0;
+        Log.i("TestBD", "cursor = " + cursor.getCount());
+        while (cursor.moveToNext()) {
+            Log.i("TestBD", "cursor = " + cursor.getString(0));
+            Lactu[i] = cursor.getString(0);
+            i += 1;
+        }
+        return Lactu;
+    }
+
+    public String[] ObjecProjet() {
+        String req = "select Objectif from Projet";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        String[] Lobjec = new String[cursor.getCount()];
+        int i = 0;
+        Log.i("TestBD", "cursor = " + cursor.getCount());
+        while (cursor.moveToNext()) {
+            Log.i("TestBD", "cursor = " + cursor.getString(0));
+            Lobjec[i] = cursor.getString(0);
+            i += 1;
+        }
+        return Lobjec;
+    }
+    //=====================================================================================
+
+    // Les info des operation
+    //=====================================================================================
+    public String[] NomOperation() {
+        String req = "select NomOperation from Operation";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        String[] Lnom = new String[cursor.getCount()];
+        int i = 0;
+        Log.i("TestBD", "cursor = " + cursor.getCount());
+        while (cursor.moveToNext()) {
+            Log.i("TestBD", "cursor = " + cursor.getString(0));
+            Lnom[i] = cursor.getString(0);
+            i += 1;
+        }
+        return Lnom;
+    }
+
+    public String[] TypeOperation() {
+        String req = "select NomOperation from Operation";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        String[] Ltype = new String[cursor.getCount()];
+        String[] NomOpe = NomOperation();
+        int i = 0;
+        Log.i("TestBD", "cursor = " + cursor.getCount());
+        while (cursor.moveToNext()) {
+            String req1 = "select Type " +
+                            "from Categorie " +
+                            "INNER JOIN Operation on Operation.IdCateg = Categorie.IdCateg" +
+                            "WHERE Operation.NomOperation = " + NomOpe[i] ;
+            Cursor cursor1 = maBase.rawQuery(req1, null, null);
+            Log.i("TestBD", "cursor = " + cursor1.getString(0));
+            Ltype[i] = cursor1.getString(0);
+            i += 1;
+        }
+        return Ltype;
+    }
+
+    public String[] MontantOperation() {
+        String req1 = "select MontantOp from Operation";
+        Cursor cursor1 = maBase.rawQuery(req1, null, null);
+        String req2 = "select TypeOperation from Operation";
+        Cursor cursor2 = maBase.rawQuery(req2, null, null);
+        String[] Lmontant = new String[cursor1.getCount()];
+        int i = 0;
+        Log.i("TestBD", "cursor = " + cursor1.getCount());
+        while (cursor1.moveToNext() && cursor2.moveToNext()) {
+            Log.i("TestBD", "cursor = " + cursor1.getString(0));
+            if (cursor2.getString(0) == "Dépense") {
+                Lmontant[i] = "-" + cursor1.getString(0);
+            } else if (cursor2.getString(0) == "Gain"){
+                Lmontant[i] = "+" + cursor1.getString(0);
+            } else {
+                Log.i("TestBD", "ERREUR Dépense ou Gain");
+            }
+            i += 1;
+        }
+        return Lmontant;
+    }
+    //=====================================================================================
 }
