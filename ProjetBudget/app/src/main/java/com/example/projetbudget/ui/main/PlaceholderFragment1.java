@@ -9,7 +9,11 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projetbudget.Adapter.OperationAdapter;
+import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.databinding.FragmentMainBinding;
 
@@ -24,7 +28,8 @@ public class PlaceholderFragment1 extends Fragment {
     private FragmentMainBinding binding;
     Intent intent3;
     Button btn3;
-    R
+    RecyclerView RVOperation;
+    String[] S1, S2, S3;
 
     public static PlaceholderFragment1 newInstance(int index) {
         PlaceholderFragment1 fragment = new PlaceholderFragment1();
@@ -41,6 +46,23 @@ public class PlaceholderFragment1 extends Fragment {
 
 
         View rootView = inflater.inflate(R.layout.fragment1, container, false);
+
+        RVOperation = rootView.findViewById(R.id.RVOperation);
+
+        GestionBD sgbd = new GestionBD(getContext());
+
+        sgbd.open();
+
+        S1 = sgbd.NomOperation();
+        S2 = sgbd.TypeOperation();
+        S3 = sgbd.MontantOperation();
+
+        OperationAdapter operationAdapter = new OperationAdapter(getContext(),S1,S2,S3);
+
+        RVOperation.setAdapter(operationAdapter);
+
+        RVOperation.setLayoutManager(new LinearLayoutManager(getContext()));
+
         return rootView;
     }
 
