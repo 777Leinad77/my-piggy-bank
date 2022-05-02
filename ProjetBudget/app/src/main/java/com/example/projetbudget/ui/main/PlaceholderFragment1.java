@@ -24,6 +24,7 @@ public class PlaceholderFragment1 extends Fragment {
     private FragmentMainBinding binding;
     Intent intent3;
     Button btn3;
+    R
 
     public static PlaceholderFragment1 newInstance(int index) {
         PlaceholderFragment1 fragment = new PlaceholderFragment1();
