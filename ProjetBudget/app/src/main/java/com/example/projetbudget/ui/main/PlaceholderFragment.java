@@ -64,11 +64,12 @@ public class PlaceholderFragment extends Fragment {
         S2 = sgbd.ActuProjet();
         S3 = sgbd.ObjecProjet();
         sgbd.close();
-        Log.i("TestPlaceholderFragment", "S1 = " + S1[0] + " / " + S1[1]);
+        //Log.i("TestPlaceholderFragment", "S1 = " + S1[0] + " / " + S1[1]);
 
         ProjetAdapter projetAdapter = new ProjetAdapter(getContext(), S1, S2, S3);
         RVProject.setAdapter(projetAdapter);
         RVProject.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
         //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
         intent = new Intent(this.getContext(), CreationProject.class);

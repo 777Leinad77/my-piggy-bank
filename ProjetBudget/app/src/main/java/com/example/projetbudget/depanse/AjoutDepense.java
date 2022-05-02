@@ -154,13 +154,12 @@ public class AjoutDepense extends Fragment implements AdapterView.OnItemSelected
                 if (bool1 == true && bool2 == true && bool3 == true) {
                         sgbd.open();
                         sgbd.nouvOperationS(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
-                        String typeOpertion = sgbd.getTypeOperation(nomValeur);
-                        if (typeOpertion == "Gain "){
+                        if (RB.getText().length() == 4){
                             sgbd.valeurPlus(montantValeur);
-                        }else if(typeOpertion == "Dépense") {
+                        }else if(RB.getText().length() == 7) {
                             sgbd.valeurMoins(montantValeur);
                         } else {
-                            Log.i("TestAjoutDepense", "ERREUR Gain ou Dépense :" + typeOpertion+";");
+                            Log.i("TestAjoutDepense", "ERREUR Gain ou Dépense :" + RB.getText()+";");
                         }
                         sgbd.close();
                         startActivity(intent);

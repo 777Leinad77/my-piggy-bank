@@ -48,21 +48,21 @@ public class GestionBD {
 
     public void valeurMoins(String valeur) {
         String res = donnerLaValeur();
-        Log.i("TestBD","valeur de res : "+res+", de valeur : "+valeur);
+        Log.i("TestBD_valeurMoins","valeur de res : "+res+", de valeur : "+valeur);
         int intres = Integer.parseInt(res);
         int intvaleur = Integer.parseInt(valeur);
         int calc = intres-intvaleur;
-        Log.i("TestBD","valeur apré calcul "+calc);
+        Log.i("TestBD_valeurMoins","valeur apré calcul "+calc);
         creerValeur(String.valueOf(calc));
     }
 
     public void valeurPlus(String valeur) {
         String res = donnerLaValeur();
-        Log.i("TestBD","valeur de res : "+res+", de valeur : "+valeur);
+        Log.i("TestBD_valeurPlus","valeur de res : "+res+", de valeur : "+valeur);
         int intres = Integer.parseInt(res);
         int intvaleur = Integer.parseInt(valeur);
         int calc = intres+intvaleur;
-        Log.i("TestBD","valeur apré calcul "+calc);
+        Log.i("TestBD_valeurPlus","valeur apré calcul "+calc);
         creerValeur(String.valueOf(calc));
     }
     //-----------------------------------------------------------------------------------
@@ -73,10 +73,10 @@ public class GestionBD {
         String req2 = "select NomOperation from Operation";// +
         Cursor cursor2 = maBase.rawQuery(req2,null,null);
         while (cursor1.moveToNext() && cursor2.moveToNext()) {
-            Log.i("TestBD","cursor2 = " + cursor2 + " et nom = " + nom);
+            Log.i("TestBD_getTypeOperation","cursor2 = " + cursor2 + " et nom = " + nom);
             if (cursor2.getString(0) == nom) {
                 typeOpe = cursor1.getString(0);
-                Log.i("TestBD","cursor1 = " + cursor1);
+                Log.i("TestBD_getTypeOperation","cursor1 = " + cursor1);
             }
         }
         return typeOpe;
@@ -88,15 +88,15 @@ public class GestionBD {
     }
 
     public ArrayList<TypeOperation> getCateg(){
-        Log.i("TestBD","ouverture de getCateg");
+        Log.i("TestBD_getCateg","ouverture de getCateg");
         ArrayList<TypeOperation> Categ = new ArrayList<TypeOperation>();
-        Log.i("TestBD","appré ArryList");
+        Log.i("TestBD_getCateg","appré ArryList");
         String req1 = "select IdCateg from Categorie";
         Cursor cursor1 = maBase.rawQuery(req1,null,null);
-        Log.i("TestBD","cursor1 : ");
+        Log.i("TestBD_getCateg","cursor1 : ");
         String req2 = "select Type from Categorie";
         Cursor cursor2 = maBase.rawQuery(req2,null,null);
-        Log.i("TestBD","cursor2 : ");
+        Log.i("TestBD_getCateg","cursor2 : ");
         TypeOperation cat0 = new TypeOperation(0, "choisir un type", "categOpe");
         Categ.add(cat0);
         while (cursor1.moveToNext() && cursor2.moveToNext()) {
@@ -108,15 +108,15 @@ public class GestionBD {
     }
 
     public ArrayList<TypeFrequence> getFraqu() {
-        Log.i("TestBD", "ouverture de getCateg");
+        Log.i("TestBD_getFraqu", "ouverture de getCateg");
         ArrayList<TypeFrequence> Frequ = new ArrayList<TypeFrequence>();
-        Log.i("TestBD", "appré ArryList");
+        Log.i("TestBD_getFraqu", "appré ArryList");
         String req1 = "select IdFrequ from Frquence";
         Cursor cursor1 = maBase.rawQuery(req1, null, null);
-        Log.i("TestBD", "cursor1 : ");
+        Log.i("TestBD_getFraqu", "cursor1 : ");
         String req2 = "select Type from Frquence";
         Cursor cursor2 = maBase.rawQuery(req2, null, null);
-        Log.i("TestBD", "cursor2 : ");
+        Log.i("TestBD_getFraqu", "cursor2 : ");
         TypeFrequence fre0 = new TypeFrequence(0, "choisir un type", "fequenceOpe");
         Frequ.add(fre0);
         while (cursor1.moveToNext() && cursor2.moveToNext()) {
@@ -168,9 +168,9 @@ public class GestionBD {
         Cursor cursor = maBase.rawQuery(req, null, null);
         String[] Lnom = new String[cursor.getCount()];
         int i = 0;
-        Log.i("TestBD", "cursor = " + cursor.getCount());
+        Log.i("TestBD_NomProjet", "cursor = " + cursor.getCount());
         while (cursor.moveToNext()) {
-            Log.i("TestBD", "cursor = " + cursor.getString(0));
+            Log.i("TestBD_NomProjet", "cursor = " + cursor.getString(0));
             Lnom[i] = cursor.getString(0);
             i += 1;
         }
@@ -182,9 +182,9 @@ public class GestionBD {
         Cursor cursor = maBase.rawQuery(req, null, null);
         String[] Lactu = new String[cursor.getCount()];
         int i = 0;
-        Log.i("TestBD", "cursor = " + cursor.getCount());
+        Log.i("TestBD_ActuProjet", "cursor = " + cursor.getCount());
         while (cursor.moveToNext()) {
-            Log.i("TestBD", "cursor = " + cursor.getString(0));
+            Log.i("TestBD_ActuProjet", "cursor = " + cursor.getString(0));
             Lactu[i] = cursor.getString(0);
             i += 1;
         }
@@ -196,9 +196,9 @@ public class GestionBD {
         Cursor cursor = maBase.rawQuery(req, null, null);
         String[] Lobjec = new String[cursor.getCount()];
         int i = 0;
-        Log.i("TestBD", "cursor = " + cursor.getCount());
+        Log.i("TestBD_ObjecProjet", "cursor = " + cursor.getCount());
         while (cursor.moveToNext()) {
-            Log.i("TestBD", "cursor = " + cursor.getString(0));
+            Log.i("TestBD_ObjecProjet", "cursor = " + cursor.getString(0));
             Lobjec[i] = cursor.getString(0);
             i += 1;
         }
@@ -213,9 +213,9 @@ public class GestionBD {
         Cursor cursor = maBase.rawQuery(req, null, null);
         String[] Lnom = new String[cursor.getCount()];
         int i = 0;
-        Log.i("TestBD", "cursor = " + cursor.getCount());
+        Log.i("TestBD_NomOperation", "cursor = " + cursor.getCount());
         while (cursor.moveToNext()) {
-            Log.i("TestBD", "cursor = " + cursor.getString(0));
+            Log.i("TestBD_NomOperation", "cursor = " + cursor.getString(0));
             Lnom[i] = cursor.getString(0);
             i += 1;
         }
@@ -223,41 +223,53 @@ public class GestionBD {
     }
 
     public String[] TypeOperation() {
-        String req = "select NomOperation from Operation";
+        String req = "select NomOperation, Type from Operation " +
+                "inner join Categorie on Categorie.IdCateg = Operation.IdCateg";
         Cursor cursor = maBase.rawQuery(req, null, null);
         String[] Ltype = new String[cursor.getCount()];
-        String[] NomOpe = NomOperation();
         int i = 0;
-        Log.i("TestBD", "cursor = " + cursor.getCount());
         while (cursor.moveToNext()) {
-            String req1 = "select Type " +
-                            "from Categorie " +
-                            "INNER JOIN Operation on Operation.IdCateg = Categorie.IdCateg" +
-                            "WHERE Operation.NomOperation = " + NomOpe[i] ;
-            Cursor cursor1 = maBase.rawQuery(req1, null, null);
-            Log.i("TestBD", "cursor = " + cursor1.getString(0));
-            Ltype[i] = cursor1.getString(0);
-            i += 1;
+            Log.i("TestBD_TypeOperation", "cursorTest = " + cursor.getString(0) + ", cursor2 = " + cursor.getString(1));
+            Ltype[i] = cursor.getString(1);
+            i = i + 1;
         }
+        //Test échouer
+        /*String req1 = "select NomOperation, IdCateg from Operation";
+        Cursor cursor1 = maBase.rawQuery(req1, null, null);
+        String req2 = "select Type, IdCateg from Categorie";
+        Cursor cursor2 = maBase.rawQuery(req2, null, null);
+        String[] Ltype = new String[cursor1.getCount()];
+        int i = 0;
+        Log.i("TestBD_TypeOperation", "cursor.getCount() = " + cursor1.getCount());
+        while (cursor1.moveToNext()) {
+            Log.i("TestBD_TypeOperation", "1");
+            while (cursor2.moveToNext()) {
+                Log.i("TestBD_TypeOperation", "cursor1 = " + cursor1.getString(1) + ", cursor2 = " + cursor2.getString(1));
+                if (cursor1.getString(1) == cursor2.getString(1)) {
+                    Ltype[i] = cursor2.getString(0);
+                    Log.i("TestBD_TypeOperation", "cursor1 = " + cursor1.getString(0) + ", cursor2 = " + cursor2.getString(0));
+                }
+            }
+            cursor2.moveToFirst();
+            i += 1;
+        }*/
         return Ltype;
     }
 
     public String[] MontantOperation() {
-        String req1 = "select MontantOp from Operation";
-        Cursor cursor1 = maBase.rawQuery(req1, null, null);
-        String req2 = "select TypeOperation from Operation";
-        Cursor cursor2 = maBase.rawQuery(req2, null, null);
-        String[] Lmontant = new String[cursor1.getCount()];
+        String req = "select MontantOp, TypeOperation from Operation";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        String[] Lmontant = new String[cursor.getCount()];
         int i = 0;
-        Log.i("TestBD", "cursor = " + cursor1.getCount());
-        while (cursor1.moveToNext() && cursor2.moveToNext()) {
-            Log.i("TestBD", "cursor = " + cursor1.getString(0));
-            if (cursor2.getString(0) == "Dépense") {
-                Lmontant[i] = "-" + cursor1.getString(0);
-            } else if (cursor2.getString(0) == "Gain"){
-                Lmontant[i] = "+" + cursor1.getString(0);
+        Log.i("TestBD_MontantOperation", "cursor = " + cursor.getCount());
+        while (cursor.moveToNext()) {
+            Log.i("TestBD_MontantOperation", "cursor = " + cursor.getString(0));
+            if (cursor.getString(1).length() == 7) {
+                Lmontant[i] = "-" + cursor.getString(0);
+            } else if (cursor.getString(1).length() == 4){
+                Lmontant[i] = "+" + cursor.getString(0);
             } else {
-                Log.i("TestBD", "ERREUR Dépense ou Gain");
+                Log.i("TestBD_MontantOperation", "ERREUR Dépense ou Gain. cursor = " + cursor.getString(1));
             }
             i += 1;
         }

@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projetbudget.R;
 import com.example.projetbudget.databinding.FragmentMainBinding;
@@ -25,8 +24,7 @@ public class PlaceholderFragment1 extends Fragment {
     private FragmentMainBinding binding;
     Intent intent3;
     Button btn3;
-    RecyclerView RVOperation;
-    String[] S1, S2, S3, S4;
+    R
 
     public static PlaceholderFragment1 newInstance(int index) {
         PlaceholderFragment1 fragment = new PlaceholderFragment1();
