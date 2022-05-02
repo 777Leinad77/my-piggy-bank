@@ -65,6 +65,23 @@ public class GestionBD {
         Log.i("TestBD","valeur apré calcul "+calc);
         creerValeur(String.valueOf(calc));
     }
+    //-----------------------------------------------------------------------------------
+    public String getTypeOperation(String nom) {
+        String typeOpe = null;
+        String req1 = "select TypeOperation from Operation";
+        Cursor cursor1 = maBase.rawQuery(req1,null,null);
+        String req2 = "select NomOperation from Operation";// +
+        Cursor cursor2 = maBase.rawQuery(req2,null,null);
+        while (cursor1.moveToNext() && cursor2.moveToNext()) {
+            Log.i("TestBD","cursor2 = " + cursor2 + " et nom = " + nom);
+            if (cursor2.getString(0) == nom) {
+                typeOpe = cursor1.getString(0);
+                Log.i("TestBD","cursor1 = " + cursor1);
+            }
+        }
+        return typeOpe;
+    }
+    //-----------------------------------------------------------------------------------
 
     public void videValeur() {
         maBase.delete("bujetTotal",null, null);

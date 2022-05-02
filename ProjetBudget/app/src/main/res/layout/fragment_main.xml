@@ -39,10 +39,10 @@
         app:layout_constraintBottom_toTopOf="@+id/gd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/TVGDP" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TVGDP"
         android:layout_width="111dp"
         android:layout_height="18dp"
         android:text="Gestion De Projet"

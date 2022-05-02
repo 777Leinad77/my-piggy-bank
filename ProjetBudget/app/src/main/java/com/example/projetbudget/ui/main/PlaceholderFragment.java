@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -35,6 +36,7 @@ public class PlaceholderFragment extends Fragment {
     Button gd;
     RecyclerView RVProject;
     String[] S1, S2, S3;
+    TextView GDP;
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -52,8 +54,12 @@ public class PlaceholderFragment extends Fragment {
         GestionBD sgbd = new GestionBD(getContext());
 
         RVProject = rootView.findViewById(R.id.RVProject);
+        GDP = rootView.findViewById(R.id.TVGDP);
 
         sgbd.open();
+
+        GDP.setText(sgbd.donnerLaValeur());
+
         S1 = sgbd.NomProjet();
         S2 = sgbd.ActuProjet();
         S3 = sgbd.ObjecProjet();
