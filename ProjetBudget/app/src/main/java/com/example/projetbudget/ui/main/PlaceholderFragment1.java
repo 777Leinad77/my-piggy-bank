@@ -59,7 +59,7 @@ public class PlaceholderFragment1 extends Fragment {
         sgbd.close();
 
         OperationAdapter operationAdapter = new OperationAdapter(getContext(), S1, S2, S3);
-        RVOperation.setAdapter((operationAdapter));
+        RVOperation.setAdapter(operationAdapter);
         RVOperation.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return rootView;
