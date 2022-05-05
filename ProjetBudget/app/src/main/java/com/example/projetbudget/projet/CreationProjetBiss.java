@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -23,9 +24,8 @@ public class CreationProjetBiss extends Fragment {
 
     private CreationProjetBinding binding;
     Intent intent;
-
+    TextView nom, actuelle, objectif;
     Button cp;
-
 
     public static CreationProjetBiss newInstance(int index) {
         CreationProjetBiss fragment = new CreationProjetBiss();
@@ -43,6 +43,10 @@ public class CreationProjetBiss extends Fragment {
         intent = new Intent(getContext(), com.example.projetbudget.activity.MainActivity.class);
         View rootView = inflater.inflate(R.layout.creation_projet, container, false);
 
+        /*nom = rootView.findViewById(R.id.TVNomProjBiss);
+        actuelle = rootView.findViewById(R.id.TVMontActuProjBiss);
+        objectif = rootView.findViewById(R.id.TVObjectProjBiss);*/
+
         cp = rootView.findViewById(R.id.gd);
         cp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +60,17 @@ public class CreationProjetBiss extends Fragment {
 
         return rootView;
     }
+
+    /*private void getData() {
+        if (getIntent().hasExtra("data1") && getIntent().hasExtra("data2") && getIntent().hasExtra("data3")){
+
+        }
+    }
+
+    private  void setData() {
+
+    }*/
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

@@ -43,8 +43,8 @@
 
     <TextView
         android:id="@+id/TVGDP"
-        android:layout_width="111dp"
-        android:layout_height="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Gestion De Projet"
         app:layout_constraintBottom_toTopOf="@+id/gp"
         app:layout_constraintEnd_toEndOf="parent"
