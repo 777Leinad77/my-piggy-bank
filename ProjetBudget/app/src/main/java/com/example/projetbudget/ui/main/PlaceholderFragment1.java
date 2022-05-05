@@ -44,7 +44,6 @@ public class PlaceholderFragment1 extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-
         View rootView = inflater.inflate(R.layout.fragment1, container, false);
 
         RVOperation = rootView.findViewById(R.id.RVOperation);
@@ -57,10 +56,10 @@ public class PlaceholderFragment1 extends Fragment {
         S2 = sgbd.TypeOperation();
         S3 = sgbd.MontantOperation();
 
-        OperationAdapter operationAdapter = new OperationAdapter(getContext(),S1,S2,S3);
+        sgbd.close();
 
-        RVOperation.setAdapter(operationAdapter);
-
+        OperationAdapter operationAdapter = new OperationAdapter(getContext(), S1, S2, S3);
+        RVOperation.setAdapter((operationAdapter));
         RVOperation.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return rootView;
