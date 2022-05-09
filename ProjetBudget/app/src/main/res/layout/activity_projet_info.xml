@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/BProjRetour"
+        android:id="@+id/BProjRetour1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retour"
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TVAjout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" Somme à ajouter au Projet"
@@ -91,9 +91,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enregister"
-        app:layout_constraintBottom_toBottomOf="@+id/BProjRetour"
-        app:layout_constraintEnd_toStartOf="@+id/BProjRetour"
+        app:layout_constraintBottom_toBottomOf="@+id/BProjRetour1"
+        app:layout_constraintEnd_toStartOf="@+id/BProjRetour1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BProjRetour" />
+        app:layout_constraintTop_toTopOf="@+id/BProjRetour1" />
+
+    <TextView
+        android:id="@+id/TVAjoutErreur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/ETAjoutProj"
+        app:layout_constraintTop_toBottomOf="@+id/ETAjoutProj" />
+
+    <Button
+        android:id="@+id/BProjSuprFin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fin du projet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BProjRetour2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BProjSuprFin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
