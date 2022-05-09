@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetBudget">
         <activity
+            android:name=".depanse.OperationInfo"
+            android:exported="false" />
+        <activity
             android:name=".projet.ProjetInfo"
             android:exported="false" />
         <activity

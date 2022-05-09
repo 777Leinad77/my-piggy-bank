@@ -38,4 +38,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVNom" />
 
+    <Button
+        android:id="@+id/BProjetSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ETAjoutProj"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ETAjoutProj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/BProjetSubmit"
+        app:layout_constraintEnd_toStartOf="@+id/BProjetSubmit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BProjetSubmit"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/BProjRetour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BProjEnregister"
+        app:layout_constraintTop_toBottomOf="@+id/ETAjoutProj" />
+
+    <Button
+        android:id="@+id/BProjModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifié"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Somme à ajouter au Projet"
+        app:layout_constraintBottom_toTopOf="@+id/ETAjoutProj"
+        app:layout_constraintStart_toStartOf="@+id/ETAjoutProj" />
+
+    <Button
+        android:id="@+id/BProjEnregister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enregister"
+        app:layout_constraintBottom_toBottomOf="@+id/BProjRetour"
+        app:layout_constraintEnd_toStartOf="@+id/BProjRetour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BProjRetour" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

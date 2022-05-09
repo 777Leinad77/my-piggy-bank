@@ -63,6 +63,7 @@ public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHold
         TextView myText1, myText2, myText3;
         ConstraintLayout constraintLayout;
 
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             myText1 = itemView.findViewById(R.id.TVNomProjet);

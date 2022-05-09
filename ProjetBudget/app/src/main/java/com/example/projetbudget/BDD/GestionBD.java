@@ -119,6 +119,24 @@ public class GestionBD {
         cv.put("IdCateg", categ);
         maBase.insert("Operation",null, cv);
     }
+    public void suprOperation(String nom){
+        maBase.delete("Operation","NomOperation=?", new String[]{nom});
+        Log.i("TestBD_SuprOperation", "nom de la table " + nom);
+        String req = "select NomOperation, MontantOp, TypeOperation from Operation";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        while (cursor.moveToNext()) {
+            Log.i("TestBD_SuprOperation", "cursor = " + cursor.getString(0));
+            if (cursor.getString(0) == nom) {
+                if (cursor.getString(2).length() == 7) {
+                    valeurMoins(cursor.getString(1));
+                } else if (cursor.getString(2).length() == 4) {
+                    valeurPlus(cursor.getString(1));
+                } else {
+                    Log.i("TestBD_SuprOperation", "ERREUR Dépense ou Gain. cursor = " + cursor.getString(2));
+                }
+            }
+        }
+    }
 
     public void nouvOperationP(String nom, int montant, String type, int categ, int frequ, String dateFrequ ) {
         Date date = new Date();
