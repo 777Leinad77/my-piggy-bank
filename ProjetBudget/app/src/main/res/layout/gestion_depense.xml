@@ -36,7 +36,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager400"
         android:layout_width="match_parent"
-        android:layout_height="519dp"
+        android:layout_height="634dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:ignore="SpeakableTextPresentCheck" />
 

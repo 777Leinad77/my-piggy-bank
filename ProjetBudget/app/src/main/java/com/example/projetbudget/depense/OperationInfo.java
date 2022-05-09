@@ -1,4 +1,4 @@
-package com.example.projetbudget.depanse;
+package com.example.projetbudget.depense;
 
 import androidx.appcompat.app.AppCompatActivity;
 

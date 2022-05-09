@@ -13,7 +13,7 @@
             android:name=".ProjetModif"
             android:exported="false" />
         <activity
-            android:name=".depanse.OperationInfo"
+            android:name=".depense.OperationInfo"
             android:exported="false" />
         <activity
             android:name=".projet.ProjetInfo"
@@ -22,7 +22,7 @@
             android:name=".projet.ProjetActivity"
             android:exported="false" />
         <activity
-            android:name=".projet.CreationProject"
+            android:name=".projet.CreationProjet"
             android:exported="false" />
         <activity
             android:name=".activity.GestionDepense"

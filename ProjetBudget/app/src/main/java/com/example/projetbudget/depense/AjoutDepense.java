@@ -1,4 +1,4 @@
-package com.example.projetbudget.depanse;
+package com.example.projetbudget.depense;
 
 import android.content.Intent;
 import android.os.Bundle;

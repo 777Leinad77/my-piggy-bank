@@ -2,7 +2,6 @@ package com.example.projetbudget.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.GestionDepense;
 import com.example.projetbudget.databinding.FragmentMainBinding;
-import com.example.projetbudget.projet.CreationProject;
+import com.example.projetbudget.projet.CreationProjet;
 import com.example.projetbudget.projet.ProjetInfo;
 
 /**
@@ -72,7 +71,7 @@ public class PlaceholderFragment extends Fragment {
 
         //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
         intent3 = new Intent(this.getContext(), ProjetInfo.class);
-        intent = new Intent(this.getContext(), CreationProject.class);
+        intent = new Intent(this.getContext(), CreationProjet.class);
         intent1 = new Intent(this.getContext(), GestionDepense.class);
 
         gp = rootView.findViewById(R.id.gp);

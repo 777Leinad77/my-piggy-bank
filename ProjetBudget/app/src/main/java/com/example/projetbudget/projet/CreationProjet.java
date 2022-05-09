@@ -12,7 +12,7 @@ import android.widget.EditText;
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 
-public class CreationProject extends AppCompatActivity {
+public class CreationProjet extends AppCompatActivity {
 
     GestionBD sgbd = new GestionBD(this);
 
@@ -24,7 +24,7 @@ public class CreationProject extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creation_project);
+        setContentView(R.layout.activity_creation_projet);
 
         nom = (EditText)findViewById(R.id.ETNomProjet);
         montant = (EditText)findViewById(R.id.ETMontantProjet);
