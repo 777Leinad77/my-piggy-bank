@@ -2,7 +2,9 @@ package com.example.projetbudget.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,23 +12,49 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projetbudget.R;
+import com.example.projetbudget.activity.MainActivity;
 
 public class ProjetInfo extends AppCompatActivity {
 
-    TextView nom, actuelle, objectif;
+    TextView nom, actuelle, objectif, ajoutText;
     EditText ajoutProj;
-    String data1, data2, data3, actu;
-    Button modif, ajout, retour, enregister;
+    String data1, data2, data3;
+    int actu;
+    Button modif, ajout, retour1, retour2, enregister, finProj;
+    Intent activity;
+    boolean fin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projet_info);
 
+        activity = new Intent(this, MainActivity.class);
+
         nom = findViewById(R.id.TVNom);
         actuelle = findViewById(R.id.TVActuelle);
         objectif = findViewById(R.id.TVObjectif);
         ajoutProj = findViewById(R.id.ETAjoutProj);
+        ajout = findViewById(R.id.BProjetSubmit);
+        finProj = findViewById(R.id.BProjSuprFin);
+        ajoutText = findViewById(R.id.TVAjout);
+        enregister = findViewById(R.id.BProjEnregister);
+        retour1 = findViewById(R.id.BProjRetour1);
+        retour2 = findViewById(R.id.)
+
+        getData();
+        setData();
+
+        if (data2 == data3) {
+            fin = true;
+            ajout.setVisibility(View.INVISIBLE);
+            ajoutProj.setVisibility(View.INVISIBLE);
+            ajoutText.setVisibility(View.INVISIBLE);
+            enregister.setVisibility(View.INVISIBLE);
+        } else {
+            fin = false;
+            finProj.setVisibility(View.INVISIBLE);
+        }
 
         modif = findViewById(R.id.BProjModifier);
         modif.setOnClickListener(new View.OnClickListener() {
@@ -38,27 +66,38 @@ public class ProjetInfo extends AppCompatActivity {
             }
         });
 
-        ajout = findViewById(R.id.BProjetSubmit);
+
+
+        actu = Integer.parseInt(data2);
         ajout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (v == ajout) {
-
+                    actu = actu + Integer.parseInt(actuelle.getText().toString());
+                    actuelle.setText("Actuellement il est de "+ actu + " €");
                 }
             }
         });
+        Log.i("TestProjetInfo", "actu = " + actu);
 
-        retour = findViewById(R.id.BProjRetour);
-        retour.setOnClickListener(new View.OnClickListener() {
+        retour1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v == retour){
-
+                if (v == retour1){
+                    startActivity(activity);
                 }
             }
         });
 
-        enregister = findViewById(R.id.BProjEnregister);
+        retour2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v == retour2){
+                    startActivity(activity);
+                }
+            }
+        });
+
         enregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,9 +106,6 @@ public class ProjetInfo extends AppCompatActivity {
                 }
             }
         });
-        getData();
-        setData();
-
     }
 
     private void getData() {
