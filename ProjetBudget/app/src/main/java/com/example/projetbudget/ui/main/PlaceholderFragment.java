@@ -20,6 +20,7 @@ import com.example.projetbudget.R;
 import com.example.projetbudget.activity.GestionDepense;
 import com.example.projetbudget.databinding.FragmentMainBinding;
 import com.example.projetbudget.projet.CreationProject;
+import com.example.projetbudget.projet.ProjetInfo;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -30,10 +31,8 @@ public class PlaceholderFragment extends Fragment {
 
     private PageViewModel pageViewModel;
     private FragmentMainBinding binding;
-    Intent intent;
-    Button gp;
-    Intent intent1;
-    Button gd;
+    Intent intent, intent1 ,intent3;
+    Button gp, gd, piff;
     RecyclerView RVProject;
     String[] S1, S2, S3;
     TextView GDP;
@@ -72,6 +71,7 @@ public class PlaceholderFragment extends Fragment {
 
 
         //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
+        intent3 = new Intent(this.getContext(), ProjetInfo.class);
         intent = new Intent(this.getContext(), CreationProject.class);
         intent1 = new Intent(this.getContext(), GestionDepense.class);
 
