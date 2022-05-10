@@ -21,7 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.MainActivity;
-import com.example.projetbudget.databinding.SupressionDepenseBinding;
+import com.example.projetbudget.databinding.GainDepenseBinding;
 import com.example.projetbudget.metier.TypeFrequence;
 import com.example.projetbudget.metier.TypeOperation;
 
@@ -31,11 +31,11 @@ import java.util.List;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class SuppressionDepense extends Fragment implements AdapterView.OnItemSelectedListener {
+public class GainDepense extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private SupressionDepenseBinding binding;
+    private GainDepenseBinding binding;
     ArrayList<TypeFrequence> frequ = new ArrayList<TypeFrequence>();
     Spinner spinnerFrequ;
     ArrayList<TypeOperation> categ = new ArrayList<TypeOperation>();
@@ -56,8 +56,8 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
     int idcat;
     int idfrequ;
 
-    public static SuppressionDepense newInstance(int index) {
-        SuppressionDepense fragment = new SuppressionDepense();
+    public static GainDepense newInstance(int index) {
+        GainDepense fragment = new GainDepense();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -72,7 +72,7 @@ public class SuppressionDepense extends Fragment implements AdapterView.OnItemSe
         GestionBD sgbd = new GestionBD(getContext());
 
         intent = new Intent(getContext(), MainActivity.class);
-        View rootView = inflater.inflate(R.layout.supression_depense, container ,false);
+        View rootView = inflater.inflate(R.layout.gain_depense, container ,false);
 
         spinnerFrequ = rootView.findViewById(R.id.SFrequenceP);
         spinnerCateg = rootView.findViewById(R.id.STypeOpeP);

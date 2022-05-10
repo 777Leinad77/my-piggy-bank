@@ -13,7 +13,7 @@ import com.example.projetbudget.R;
 public class SectionsPagerGestionDepense extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[]{ R.string.tab_text_2};
     private final Context mContext;
 
     public SectionsPagerGestionDepense(Context context, FragmentManager fm) {
@@ -25,10 +25,10 @@ public class SectionsPagerGestionDepense extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        if (position == 0) {
+       /* if (position == 0) {
             return AjoutDepense.newInstance(0);
-        }
-        return SuppressionDepense.newInstance(1);
+        }*/
+       return GainDepense.newInstance(1);
     }
 
     @Nullable
@@ -39,6 +39,6 @@ public class SectionsPagerGestionDepense extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 1;
     }
 }

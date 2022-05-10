@@ -40,7 +40,7 @@ public class ProjetInfo extends AppCompatActivity {
         ajoutText = findViewById(R.id.TVAjout);
         enregister = findViewById(R.id.BProjEnregister);
         retour1 = findViewById(R.id.BProjRetour1);
-        retour2 = findViewById(R.id.)
+        retour2 = findViewById(R.id.BProjRetour2);
 
         getData();
         setData();
@@ -51,9 +51,13 @@ public class ProjetInfo extends AppCompatActivity {
             ajoutProj.setVisibility(View.INVISIBLE);
             ajoutText.setVisibility(View.INVISIBLE);
             enregister.setVisibility(View.INVISIBLE);
+            retour1.setVisibility(View.INVISIBLE);
+            finProj.setVisibility(View.VISIBLE);
+            retour2.setVisibility(View.VISIBLE);
         } else {
             fin = false;
             finProj.setVisibility(View.INVISIBLE);
+            retour2.setVisibility(View.INVISIBLE);
         }
 
         modif = findViewById(R.id.BProjModifier);
@@ -66,15 +70,18 @@ public class ProjetInfo extends AppCompatActivity {
             }
         });
 
-
-
         actu = Integer.parseInt(data2);
         ajout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (v == ajout) {
                     actu = actu + Integer.parseInt(actuelle.getText().toString());
-                    actuelle.setText("Actuellement il est de "+ actu + " €");
+                    if (actu <= Integer.parseInt(data3)) {
+                        actuelle.setText("Actuellement il est de " + actu + " €");
+                        ajoutText.setText("");
+                    } else {
+                        ajoutText.setText("La somme ajouter est trop grande");
+                    }
                 }
             }
         });

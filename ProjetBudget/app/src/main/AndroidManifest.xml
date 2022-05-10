@@ -19,9 +19,6 @@
             android:name=".projet.ProjetInfo"
             android:exported="false" />
         <activity
-            android:name=".projet.ProjetActivity"
-            android:exported="false" />
-        <activity
             android:name=".projet.CreationProjet"
             android:exported="false" />
         <activity
