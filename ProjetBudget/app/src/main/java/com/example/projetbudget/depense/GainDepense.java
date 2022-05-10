@@ -91,7 +91,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
 
         sgbd.open();
         categ = sgbd.getCateg();
-        frequ = sgbd.getFraqu();
+        frequ = sgbd.getFrequ();
         sgbd.close();
 
         //spinerfrequence---------

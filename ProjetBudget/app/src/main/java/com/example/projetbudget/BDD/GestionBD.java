@@ -90,16 +90,16 @@ public class GestionBD {
 
     }
 
-    public ArrayList<TypeFrequence> getFraqu() {
-        Log.i("TestBD_getFraqu", "ouverture de getCateg");
+    public ArrayList<TypeFrequence> getFrequ() {
+        Log.i("TestBD_getFrequ", "ouverture de getCateg");
         ArrayList<TypeFrequence> Frequ = new ArrayList<TypeFrequence>();
-        Log.i("TestBD_getFraqu", "appré ArryList");
+        Log.i("TestBD_getFrequ", "appré ArryList");
         String req1 = "select IdFrequ from Frquence";
         Cursor cursor1 = maBase.rawQuery(req1, null, null);
-        Log.i("TestBD_getFraqu", "cursor1 : ");
+        Log.i("TestBD_getFrequ", "cursor1 : ");
         String req2 = "select Type from Frquence";
         Cursor cursor2 = maBase.rawQuery(req2, null, null);
-        Log.i("TestBD_getFraqu", "cursor2 : ");
+        Log.i("TestBD_getFrequ", "cursor2 : ");
         TypeFrequence fre0 = new TypeFrequence(0, "choisir un type", "fequenceOpe");
         Frequ.add(fre0);
         while (cursor1.moveToNext() && cursor2.moveToNext()) {
