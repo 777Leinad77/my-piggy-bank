@@ -40,7 +40,7 @@ public class CreationProjetBiss extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        intent = new Intent(getContext(), com.example.projetbudget.activity.MainActivity.class);
+        intent = new Intent(getContext(), com.example.projetbudget.ui.main.PlaceholderFragment1.class);
         View rootView = inflater.inflate(R.layout.creation_projet, container, false);
 
         /*nom = rootView.findViewById(R.id.TVNomProjBiss);

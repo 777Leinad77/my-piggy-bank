@@ -30,7 +30,7 @@ public class CreationProjet extends AppCompatActivity {
         montant = (EditText)findViewById(R.id.ETMontantProjet);
         submit = (Button)findViewById(R.id.BCreationProjet);
 
-        intent = new Intent(this, com.example.projetbudget.activity.MainActivity.class);
+        intent = new Intent(this, com.example.projetbudget.ui.main.PlaceholderFragment1.class);
 
         submit.setOnClickListener(new View.OnClickListener() {
 
