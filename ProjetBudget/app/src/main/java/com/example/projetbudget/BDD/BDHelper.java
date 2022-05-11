@@ -65,7 +65,7 @@ public class BDHelper extends SQLiteOpenHelper {
         db.insert("Categorie",null, cv1);
 
         ContentValues cv2 = new ContentValues();
-        cv2.put("Type", "aujourd'hui");
+        cv2.put("Type", "aujoud'hui");
         db.insert("Frquence",null, cv2);
         cv2.put("Type", "journalière");
         db.insert("Frquence",null, cv2);
