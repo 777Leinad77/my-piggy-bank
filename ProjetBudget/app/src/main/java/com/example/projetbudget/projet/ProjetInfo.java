@@ -88,8 +88,8 @@ public class ProjetInfo extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             AlertDialog.Builder myPopup1 = new AlertDialog.Builder(theThis);
-                            myPopup1.setTitle("Supretion");
-                            myPopup1.setMessage("Ete vous sure de vouloir supprimer le Projet : " + data1 + ", allor q'il n'est pas fini?");
+                            myPopup1.setTitle("Supression");
+                            myPopup1.setMessage("Etes vous sur de vouloir supprimer le projet : " + data1 + ", alors q'il n'est pas fini ?");
                             myPopup1.setPositiveButton("OUi", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -121,7 +121,7 @@ public class ProjetInfo extends AppCompatActivity {
                 if (v == ajout) {
                     memoir = memoir + Integer.parseInt(ajoutProj.getText().toString());
                     if (ajoutProj.getText().toString().length()<=0){
-                        ajoutText.setText("Il n'y a pas de somme a ajouter");
+                        ajoutText.setText("Il n'y a pas de somme à ajouter");
                     } else if (ajoutProj.getText().toString().matches("^[0-9]*")) {
                         sgbd.open();
                         if (Integer.parseInt(sgbd.donnerLaValeur())>memoir) {
@@ -140,14 +140,14 @@ public class ProjetInfo extends AppCompatActivity {
                                 });
                                 myPopup2.show();
                             } else {
-                                ajoutText.setText("La somme ajouter est trop grande");
+                                ajoutText.setText("La somme ajouté est trop grande");
 
                             }
                         } else {
-                            ajoutText.setText("Vous n'avez plus asser de font dans votre porte-monait");
+                            ajoutText.setText("Vous n'avez plus assez de fond dans votre porte-monnaie");
                         }
                     } else {
-                        ajoutText.setText("Seul les chifre sont autorisé");
+                        ajoutText.setText("Seule les chiffres sont autorisés");
                     }
                 }
                 Log.i("TestProjetInfo", "actu1 = " + actu);
@@ -195,7 +195,7 @@ public class ProjetInfo extends AppCompatActivity {
                     sgbd.valeurMoins(Integer.toString(memoir));
                     sgbd.close();
                     memoir = 0;
-                    Toast.makeText(theThis, "les infomration on bin était enregistré", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(theThis, "les informations on bien été enregistré", Toast.LENGTH_SHORT).show();
                 }
             }
         });
