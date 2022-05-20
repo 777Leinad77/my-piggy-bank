@@ -10,10 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projetbudget.Adapter.ProjetAdapter;
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.GestionDepense;
@@ -30,7 +27,7 @@ public class PlaceholderFragment extends Fragment {
 
     private PageViewModel pageViewModel;
     private FragmentMainBinding binding;
-    Intent intent, intent1 ,intent3;
+    Intent intent, intent1 ,intent2 ,intent3;
     Button gp, gd, piff;
     TextView GDP;
 
@@ -57,7 +54,6 @@ public class PlaceholderFragment extends Fragment {
         sgbd.close();
         //Log.i("TestPlaceholderFragment", "S1 = " + S1[0] + " / " + S1[1]);
 
-        //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
         intent3 = new Intent(this.getContext(), ProjetInfo.class);
         intent = new Intent(this.getContext(), CreationProjet.class);
         intent1 = new Intent(this.getContext(), GestionDepense.class);
@@ -83,8 +79,19 @@ public class PlaceholderFragment extends Fragment {
                 }
             }
         });
+
+    piff = rootView.findViewById(R.id.piff);
+        piff.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (v == piff) {
+                startActivity(intent2);
+
+            }
+        }
+    });
         return rootView;
-    }
+}
 
     @Override
     public void onDestroyView() {
