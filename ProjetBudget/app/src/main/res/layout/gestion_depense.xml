@@ -20,7 +20,7 @@
             android:gravity="center"
             android:minHeight="?actionBarSize"
             android:padding="@dimen/appbar_padding"
-            android:text="GestionDepense"
+            android:text="Gestion Opération"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
     </com.google.android.material.appbar.AppBarLayout>

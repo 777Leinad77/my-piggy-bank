@@ -25,7 +25,7 @@
         android:id="@+id/gd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gestion Depense"
+        android:text="Gestion Operation"
         app:layout_constraintBottom_toBottomOf="@+id/section_label_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
