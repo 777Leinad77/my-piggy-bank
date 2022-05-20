@@ -199,9 +199,9 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                         montantSint = Integer.parseInt(montantValeur);
                         sgbd.open();
                         sgbd.nouvOperationP(nomValeur, montantSint, String.valueOf(RB.getText()), idcat, idfrequ, DateFrequ);
-                        if (RB.getText() == "Gain"){
+                        if (RB.getText().length() == 4){
                             sgbd.valeurPlus(montantValeur);
-                        }else if(RB.getText() == "Dépense") {
+                        }else if(RB.getText().length() == 7) {
                             sgbd.valeurMoins(montantValeur);
                         }
                         sgbd.close();

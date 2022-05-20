@@ -42,7 +42,11 @@
     <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.sqlite_sequence" active-filter-id="" />
     <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.Operation" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.Frquence" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.android_metadata" active-filter-id="" />
+    <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.android_metadata" active-filter-id="9df866e6-82db-43b6-ba99-ab998f33894b">
+      <filter id="9df866e6-82db-43b6-ba99-ab998f33894b" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="locale" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.BujetTotal" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="9d0bd20d-1081-45c1-8cea-6f458144fd70" dataset="main.Categorie" active-filter-id="EMPTY_FILTER" />
   </component>
