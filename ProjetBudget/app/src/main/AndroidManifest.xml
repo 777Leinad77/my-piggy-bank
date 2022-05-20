@@ -16,7 +16,7 @@
             android:name=".projet.ProjetModif"
             android:exported="false" />
         <activity
-            android:name=".depense.OperationInfo"
+            android:name=".operation.OperationInfo"
             android:exported="false" />
         <activity
             android:name=".projet.ProjetInfo"

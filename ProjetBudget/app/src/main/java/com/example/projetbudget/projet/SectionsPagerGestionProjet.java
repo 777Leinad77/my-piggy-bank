@@ -26,12 +26,9 @@ public class SectionsPagerGestionProjet extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        if (position == 0) {
-            return CreationProjetBiss.newInstance(0);
-        } else if (position == 1) {
-            return SuppressionProjet.newInstance(1);
-        }
-        return ModificationProjet.newInstance(2);
+
+        return SuppressionProjet.newInstance(0);
+
     }
 
     @Nullable
