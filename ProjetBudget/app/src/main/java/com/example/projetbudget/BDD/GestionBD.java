@@ -100,15 +100,13 @@ public class GestionBD {
         String req2 = "select Type from Frquence";
         Cursor cursor2 = maBase.rawQuery(req2, null, null);
         Log.i("TestBD_getFrequ", "cursor2 : ");
-        TypeFrequence fre0 = new TypeFrequence(0, "choisir un type", "fequenceOpe");
-        Frequ.add(fre0);
         while (cursor1.moveToNext() && cursor2.moveToNext()) {
             TypeFrequence fre = new TypeFrequence(cursor1.getInt(0), cursor2.getString(0), "fequenceOpe");
             Frequ.add(fre);
         }
         return Frequ;
     }
-
+/*
     public void nouvOperationS(String nom, int montant, String type, int categ ) {
         Date date = new Date();
         ContentValues cv = new ContentValues();
@@ -119,6 +117,7 @@ public class GestionBD {
         cv.put("IdCateg", categ);
         maBase.insert("Operation",null, cv);
     }
+ */
     public void suprOperation(String nom){
         maBase.delete("Operation","NomOperation=?", new String[]{nom});
         Log.i("TestBD_SuprOperation", "nom de la table " + nom);

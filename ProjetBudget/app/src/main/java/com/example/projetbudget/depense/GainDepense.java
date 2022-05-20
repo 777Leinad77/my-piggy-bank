@@ -140,7 +140,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                     RB = rootView.findViewById(radioId);
 
                     idcat = spinnerCateg.getSelectedItemPosition();
-                    idfrequ = spinnerFrequ.getSelectedItemPosition();
+                    idfrequ = spinnerFrequ.getSelectedItemPosition() + 1;
 
                     String nomValeur = nom.getText().toString();
                     String montantValeur = montant.getText().toString();
@@ -195,17 +195,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                     }
                     Log.i("TestSuppressionDepense", "bool4 est : " + bool4);
 
-                    boolean bool5;
-                    if (idfrequ != 0) {
-                        ETypeFrequ.setText("");
-                        bool5 = true;
-                    }else {
-                        ETypeFrequ.setText("Vous devez choisir un type");
-                        bool5 = false;
-                    }
-                    Log.i("TestSuppressionDepense", "bool5 est : " + bool5);
-
-                    if (bool1 == true && bool2 == true && bool3 == true && bool4 == true && bool5 == true) {
+                    if (bool1 == true && bool2 == true && bool3 == true && bool4 == true) {
                         montantSint = Integer.parseInt(montantValeur);
                         sgbd.open();
                         sgbd.nouvOperationP(nomValeur, montantSint, String.valueOf(RB.getText()), idcat, idfrequ, DateFrequ);
