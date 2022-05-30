@@ -67,7 +67,7 @@ public class PlaceholderFragment extends Fragment {
             public void onClick(View v) {
                 if (v == gp) {
                     startActivity(intent);
-                    fin();
+                    //fin();
                 }
             }
         });
@@ -78,7 +78,7 @@ public class PlaceholderFragment extends Fragment {
             public void onClick(View v) {
                 if (v == gd) {
                     startActivity(intent1);
-                    fin();
+                    //fin();
                 }
             }
         });
