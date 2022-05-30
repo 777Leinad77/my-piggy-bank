@@ -20,6 +20,7 @@ import com.example.projetbudget.ui.main.PlaceholderFragment1;
 
 public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.MyViewHolder> {
 
+    private MainActivity theThis;
     String[] data1, data2, data3;
     Context context;
 
@@ -59,6 +60,7 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.MyVi
                         sgbd.suprOperation(data1[position]);
                         sgbd.close();
                         context.startActivity(intent);
+                        fin();
                     }
                 });
                 myPopup.setNegativeButton("NON", new DialogInterface.OnClickListener() {
@@ -94,5 +96,8 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.MyVi
             constraintLayout = itemView.findViewById(R.id.CLOperation);
 
         }
+    }
+    private void fin(){
+        theThis.finish();
     }
 }

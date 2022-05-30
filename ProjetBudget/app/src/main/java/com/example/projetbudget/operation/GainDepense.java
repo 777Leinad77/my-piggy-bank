@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
+import com.example.projetbudget.activity.GestionDepense;
 import com.example.projetbudget.activity.MainActivity;
 import com.example.projetbudget.databinding.GainDepenseBinding;
 import com.example.projetbudget.metier.TypeOperation;
@@ -34,6 +35,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
+    private GestionDepense theThis;
     private GainDepenseBinding binding;
     ArrayList<TypeOperation> categ = new ArrayList<TypeOperation>();
     Spinner spinnerCateg;
@@ -165,6 +167,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                         }
                         sgbd.close();
                         startActivity(intent);
+                        fin();
                     }
                 }
             }
@@ -175,6 +178,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
             public void onClick(View c) {
                 if (c == ad2) {
                     startActivity(intent);
+                    fin();
                 }
             }
         });
@@ -195,5 +199,8 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    private void fin(){
+        theThis.finish();
     }
 }

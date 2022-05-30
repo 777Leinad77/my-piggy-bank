@@ -1,7 +1,5 @@
 package com.example.projetbudget.projet;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
@@ -97,6 +97,7 @@ public class ProjetInfo extends AppCompatActivity {
                                     sgbd.supProjet(data1);
                                     sgbd.close();
                                     startActivity(activityRetour);
+                                    fin();
                                 }
                             });
                             myPopup1.setNegativeButton("Non", new DialogInterface.OnClickListener() {
@@ -160,6 +161,7 @@ public class ProjetInfo extends AppCompatActivity {
             public void onClick(View v) {
                 if (v == retour1){
                     startActivity(activityRetour);
+                    fin();
                 }
             }
         });
@@ -169,6 +171,7 @@ public class ProjetInfo extends AppCompatActivity {
             public void onClick(View v) {
                 if (v == retour2){
                     startActivity(activityRetour);
+                    fin();
                 }
             }
         });
@@ -224,5 +227,8 @@ public class ProjetInfo extends AppCompatActivity {
         nom.setText("Projet : " + data1);
         actuelle.setText("Actuellement il est de "+ data2 + " €");
         objectif.setText("L'objectif du projet et de "  + data3 + " €");
+    }
+    private void fin(){
+        this.finish();
     }
 }

@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.GestionDepense;
+import com.example.projetbudget.activity.MainActivity;
 import com.example.projetbudget.databinding.FragmentMainBinding;
 import com.example.projetbudget.projet.CreationProjet;
 import com.example.projetbudget.projet.ProjetInfo;
@@ -25,6 +26,7 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
+    private MainActivity theThis;
     private PageViewModel pageViewModel;
     private FragmentMainBinding binding;
     Intent intent, intent1 ,intent3;
@@ -65,7 +67,7 @@ public class PlaceholderFragment extends Fragment {
             public void onClick(View v) {
                 if (v == gp) {
                     startActivity(intent);
-
+                    fin();
                 }
             }
         });
@@ -76,7 +78,7 @@ public class PlaceholderFragment extends Fragment {
             public void onClick(View v) {
                 if (v == gd) {
                     startActivity(intent1);
-
+                    fin();
                 }
             }
         });
@@ -87,5 +89,8 @@ public class PlaceholderFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    private void fin(){
+        theThis.finish();
     }
 }
