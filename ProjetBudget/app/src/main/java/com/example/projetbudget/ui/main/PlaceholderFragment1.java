@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projetbudget.Adapter.OperationAdapter;
+import com.example.projetbudget.Adapter.ProjetAdapter;
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.databinding.FragmentMainBinding;
@@ -28,7 +29,7 @@ public class PlaceholderFragment1 extends Fragment {
     private FragmentMainBinding binding;
     Intent intent3;
     Button btn3;
-    RecyclerView RVOperation;
+    RecyclerView RVProject;
     String[] S1, S2, S3;
 
     public static PlaceholderFragment1 newInstance(int index) {
@@ -46,21 +47,21 @@ public class PlaceholderFragment1 extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment1, container, false);
 
-        RVOperation = rootView.findViewById(R.id.RVOperation);
+        RVProject = rootView.findViewById(R.id.RVProject);
 
         GestionBD sgbd = new GestionBD(getContext());
 
         sgbd.open();
 
-        S1 = sgbd.NomOperation();
-        S2 = sgbd.TypeOperation();
-        S3 = sgbd.MontantOperation();
+        S1 = sgbd.NomProjet();
+        S2 = sgbd.ActuProjet();
+        S3 = sgbd.ObjecProjet();
 
         sgbd.close();
 
-        OperationAdapter operationAdapter = new OperationAdapter(getContext(), S1, S2, S3);
-        RVOperation.setAdapter((operationAdapter));
-        RVOperation.setLayoutManager(new LinearLayoutManager(getContext()));
+        ProjetAdapter projetAdapter = new ProjetAdapter(getContext(), S1, S2, S3);
+        RVProject.setAdapter(projetAdapter);
+        RVProject.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return rootView;
     }

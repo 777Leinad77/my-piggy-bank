@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,22 +19,22 @@ public class StartActivity extends AppCompatActivity {
     GestionBD sgbd = new GestionBD(this);
     Intent activity2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("TestStart","Debut de Start");
+        Log.i("TestStart", "Debut de Start");
         sgbd.open();
-        Log.i("TestStart","1");
-        //la ligne de desou est a enlevait du comentère pour remètre a zero l'aplli
-        //sgbd.videValeur();
+        Log.i("TestStart", "1");
         String testvaleur = sgbd.donnerLaValeur();
-        Log.i("TestStart","2");
+        Log.i("TestStart", "2");
         sgbd.close();
-        Log.i("TestStart","TestValeur = "+testvaleur);
+        Log.i("TestStart", "TestValeur = " + testvaleur);
         activity2 = new Intent(this, MainActivity.class);
-        Log.i("TestStart",""+activity2+"");
+        Log.i("TestStart", "" + activity2 + "");
 
-        if (testvaleur=="Echec de la requête") {
+        Button boutton;
+        if (testvaleur == "Echec de la requête") {
             Log.i("TestStart", "if = True");
 
             // a adapté en fonction de l'activité
@@ -41,7 +42,7 @@ public class StartActivity extends AppCompatActivity {
             //TextView text = (TextView) findViewById(R.id.textView);
             TextView erreur = (TextView) findViewById(R.id.textErreur);
             //EditText EDText = (EditText) findViewById(R.id.EDText);
-            Button boutton = (Button) findViewById(R.id.button);
+            boutton = (Button) findViewById(R.id.button);
             sgbd.open();
             String valeurPrécédante = sgbd.donnerLaValeur();
             sgbd.close();
@@ -54,8 +55,8 @@ public class StartActivity extends AppCompatActivity {
                     if (v == boutton) {
                         EditText EDText = (EditText) findViewById(R.id.EDText);
                         String valeur = EDText.getText().toString();
-                        Log.i("TestED", "valeur de EDtext : "+valeur);
-                        if (valeur.length()>0 && valeur.matches("^[0-9]*")) {
+                        Log.i("TestED", "valeur de EDtext : " + valeur);
+                        if (valeur.length() > 0 && valeur.matches("^[0-9]*")) {
                             Log.i("TestValeur", "le if" + valeur);
                             sgbd.open();
                             sgbd.videValeur();
@@ -63,7 +64,7 @@ public class StartActivity extends AppCompatActivity {
                             sgbd.close();
                             erreur.setText("");
                             startActivity(activity2);
-
+                            fin();
                         } else {
                             erreur.setText("Un des caractère n'est pas un chiffre");
                         }
@@ -73,7 +74,10 @@ public class StartActivity extends AppCompatActivity {
         } else {
             Log.i("TestStart", "if = false");
             startActivity(activity2);
+            fin();
         }
     }
-
+public void fin(){
+        this.finish();
+}
 }

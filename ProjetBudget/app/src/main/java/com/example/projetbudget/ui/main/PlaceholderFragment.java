@@ -10,10 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projetbudget.Adapter.ProjetAdapter;
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.GestionDepense;
@@ -31,9 +28,7 @@ public class PlaceholderFragment extends Fragment {
     private PageViewModel pageViewModel;
     private FragmentMainBinding binding;
     Intent intent, intent1 ,intent3;
-    Button gp, gd, piff;
-    RecyclerView RVProject;
-    String[] S1, S2, S3;
+    Button gp, gd;
     TextView GDP;
 
     public static PlaceholderFragment newInstance(int index) {
@@ -51,23 +46,13 @@ public class PlaceholderFragment extends Fragment {
 
         GestionBD sgbd = new GestionBD(getContext());
 
-        RVProject = rootView.findViewById(R.id.RVProject);
-        GDP = rootView.findViewById(R.id.TVGDP);
+
+       GDP = rootView.findViewById(R.id.TVGDP);
 
         sgbd.open();
-
         GDP.setText(sgbd.donnerLaValeur());
-
-        S1 = sgbd.NomProjet();
-        S2 = sgbd.ActuProjet();
-        S3 = sgbd.ObjecProjet();
         sgbd.close();
         //Log.i("TestPlaceholderFragment", "S1 = " + S1[0] + " / " + S1[1]);
-
-        ProjetAdapter projetAdapter = new ProjetAdapter(getContext(), S1, S2, S3);
-        RVProject.setAdapter(projetAdapter);
-        RVProject.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
         //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
         intent3 = new Intent(this.getContext(), ProjetInfo.class);

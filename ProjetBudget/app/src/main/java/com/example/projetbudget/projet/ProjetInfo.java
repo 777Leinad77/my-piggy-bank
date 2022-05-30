@@ -2,6 +2,8 @@ package com.example.projetbudget.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,80 +13,153 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.MainActivity;
 
 public class ProjetInfo extends AppCompatActivity {
 
-    TextView nom, actuelle, objectif, ajoutText;
+    private ProjetInfo theThis;
+    TextView nom, actuelle, objectif, ajoutText, textAjout;
     EditText ajoutProj;
-    String data1, data2, data3;
-    int actu;
+    String data1, data2, data3, nomModif;
+    int actu, testActu, memoir;
     Button modif, ajout, retour1, retour2, enregister, finProj;
-    Intent activity;
-    boolean fin;
+    Intent activityRetour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projet_info);
 
-        activity = new Intent(this, MainActivity.class);
+        this.theThis = this;
+
+        GestionBD sgbd = new GestionBD(this);
+
+        activityRetour = new Intent(this, MainActivity.class);
 
         nom = findViewById(R.id.TVNom);
         actuelle = findViewById(R.id.TVActuelle);
         objectif = findViewById(R.id.TVObjectif);
+        textAjout = findViewById(R.id.TVAjout);
         ajoutProj = findViewById(R.id.ETAjoutProj);
+        modif = findViewById(R.id.BProjModifier);
         ajout = findViewById(R.id.BProjetSubmit);
         finProj = findViewById(R.id.BProjSuprFin);
-        ajoutText = findViewById(R.id.TVAjout);
+        ajoutText = findViewById(R.id.TVAjoutErreur);
         enregister = findViewById(R.id.BProjEnregister);
         retour1 = findViewById(R.id.BProjRetour1);
-        retour2 = findViewById(R.id.)
+        retour2 = findViewById(R.id.BProjRetour2);
 
         getData();
         setData();
 
-        if (data2 == data3) {
-            fin = true;
+        if (data2.equals(data3)) {
             ajout.setVisibility(View.INVISIBLE);
             ajoutProj.setVisibility(View.INVISIBLE);
             ajoutText.setVisibility(View.INVISIBLE);
+            textAjout.setVisibility(View.INVISIBLE);
             enregister.setVisibility(View.INVISIBLE);
+            retour1.setVisibility(View.INVISIBLE);
+            modif.setVisibility(View.INVISIBLE);
+            finProj.setVisibility(View.VISIBLE);
+            retour2.setVisibility(View.VISIBLE);
         } else {
-            fin = false;
             finProj.setVisibility(View.INVISIBLE);
+            retour2.setVisibility(View.INVISIBLE);
         }
 
-        modif = findViewById(R.id.BProjModifier);
+        nomModif = data1;
         modif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (v == modif) {
+                    ProjetModif projetModif = new ProjetModif(theThis);
+                    projetModif.setModifNom(data1);
+                    projetModif.retour.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            nomModif = projetModif.getModifNomView();
+                            nom.setText("Projet : " + nomModif);
+                            projetModif.dismiss();
+                        }
+                    });
+                    projetModif.suppr.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AlertDialog.Builder myPopup1 = new AlertDialog.Builder(theThis);
+                            myPopup1.setTitle("Supression");
+                            myPopup1.setMessage("Etes vous sur de vouloir supprimer le projet : " + data1 + ", alors q'il n'est pas fini ?");
+                            myPopup1.setPositiveButton("OUi", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    sgbd.open();
+                                    sgbd.supProjet(data1);
+                                    sgbd.close();
+                                    startActivity(activityRetour);
+                                }
+                            });
+                            myPopup1.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            myPopup1.show();
 
+                        }
+                    });
+                    projetModif.build();
                 }
             }
         });
 
-
-
         actu = Integer.parseInt(data2);
+        memoir = 0;
         ajout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (v == ajout) {
-                    actu = actu + Integer.parseInt(actuelle.getText().toString());
-                    actuelle.setText("Actuellement il est de "+ actu + " €");
+                    memoir = memoir + Integer.parseInt(ajoutProj.getText().toString());
+                    if (ajoutProj.getText().toString().length()<=0){
+                        ajoutText.setText("Il n'y a pas de somme à ajouter");
+                    } else if (ajoutProj.getText().toString().matches("^[0-9]*")) {
+                        sgbd.open();
+                        if (Integer.parseInt(sgbd.donnerLaValeur())>memoir) {
+                            testActu = actu + Integer.parseInt(ajoutProj.getText().toString());
+                            if (testActu <= Integer.parseInt(data3)) {
+                                actu = actu + Integer.parseInt(ajoutProj.getText().toString());
+                                actuelle.setText("Actuellement il est de " + actu + " €");
+                                ajoutText.setText("");
+                                AlertDialog.Builder myPopup2 = new AlertDialog.Builder(theThis);
+                                myPopup2.setTitle("Confirmation");
+                                myPopup2.setMessage("La somme de " + Integer.parseInt(ajoutProj.getText().toString()) + " a été ajouter au projet " + data1);
+                                myPopup2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                });
+                                myPopup2.show();
+                            } else {
+                                ajoutText.setText("La somme ajouté est trop grande");
+
+                            }
+                        } else {
+                            ajoutText.setText("Vous n'avez plus assez de fond dans votre porte-monnaie");
+                        }
+                    } else {
+                        ajoutText.setText("Seule les chiffres sont autorisés");
+                    }
                 }
+                Log.i("TestProjetInfo", "actu1 = " + actu);
             }
         });
-        Log.i("TestProjetInfo", "actu = " + actu);
+
 
         retour1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (v == retour1){
-                    startActivity(activity);
+                    startActivity(activityRetour);
                 }
             }
         });
@@ -93,17 +168,44 @@ public class ProjetInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v == retour2){
-                    startActivity(activity);
+                    startActivity(activityRetour);
                 }
             }
         });
 
+        Log.i("TestProjetInfo", "data1 = " + data1 + ", nomModif = " + nomModif + ", actu = " + actu);
         enregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (v == enregister) {
-
+                    Log.i("TestProjetInfo", "data1 = " + data1 + ", nomModif = " + nomModif + ", actu = " + actu);
+                    if (actu == Integer.parseInt(data3)) {
+                        ajout.setVisibility(View.INVISIBLE);
+                        ajoutProj.setVisibility(View.INVISIBLE);
+                        ajoutText.setVisibility(View.INVISIBLE);
+                        textAjout.setVisibility(View.INVISIBLE);
+                        enregister.setVisibility(View.INVISIBLE);
+                        retour1.setVisibility(View.INVISIBLE);
+                        modif.setVisibility(View.INVISIBLE);
+                        finProj.setVisibility(View.VISIBLE);
+                        retour2.setVisibility(View.VISIBLE);
+                    }
+                    sgbd.open();
+                    sgbd.enregProjet(data1, nomModif, actu);
+                    sgbd.valeurMoins(Integer.toString(memoir));
+                    sgbd.close();
+                    memoir = 0;
+                    Toast.makeText(theThis, "les informations on bien été enregistré", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        finProj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sgbd.open();
+                sgbd.supProjetFini(data1);
+                sgbd.close();
             }
         });
     }

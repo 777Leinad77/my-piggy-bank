@@ -53,6 +53,8 @@ public class BDHelper extends SQLiteOpenHelper {
                 + ");";
         db.execSQL(req);
         ContentValues cv1 = new ContentValues();
+        cv1.put("Type", "Projet");
+        db.insert("Categorie",null, cv1);
         cv1.put("Type", "Vie quotidienne");
         db.insert("Categorie",null, cv1);
         cv1.put("Type", "Loisirs");
@@ -65,6 +67,8 @@ public class BDHelper extends SQLiteOpenHelper {
         db.insert("Categorie",null, cv1);
 
         ContentValues cv2 = new ContentValues();
+        cv2.put("Type", "aujoud'hui");
+        db.insert("Frquence",null, cv2);
         cv2.put("Type", "journalière");
         db.insert("Frquence",null, cv2);
         cv2.put("Type", "hebdomadaire");

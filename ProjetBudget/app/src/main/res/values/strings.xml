@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">ProjetBudget</string>
-    <string name="tab_text_1" translatable="false">Tab 1</string>
-    <string name="tab_text_2" translatable="false">Tab 2</string>
-    <string name="tab_text_3" translatable="false">Tab 3</string>
+    <string name="tab_text_1" translatable="false">Menu</string>
+    <string name="tab_text_2" translatable="false">Liste des projets</string>
+    <string name="tab_text_3" translatable="false">Historique d opérations</string>
 
     <string-array name="SFrequenceP">
+        <item>un seul jour</item>
         <item>journalière</item>
         <item>hebdomadaire</item>
         <item>mensuel</item>
@@ -12,4 +13,6 @@
         <item>semestriel</item>
         <item>annuel</item>
     </string-array>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

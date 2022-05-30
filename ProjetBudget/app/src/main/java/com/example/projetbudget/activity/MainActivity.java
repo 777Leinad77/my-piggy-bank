@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = binding.tab1;
+        TabLayout tabs = binding.Menu;
         tabs.setupWithViewPager(viewPager);
 
     }

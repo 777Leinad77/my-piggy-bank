@@ -1,13 +1,13 @@
 package com.example.projetbudget.projet;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
@@ -30,7 +30,7 @@ public class CreationProjet extends AppCompatActivity {
         montant = (EditText)findViewById(R.id.ETMontantProjet);
         submit = (Button)findViewById(R.id.BCreationProjet);
 
-        intent = new Intent(this, com.example.projetbudget.activity.MainActivity.class);
+        intent = new Intent(this, com.example.projetbudget.ui.main.PlaceholderFragment1.class);
 
         submit.setOnClickListener(new View.OnClickListener() {
 
@@ -47,8 +47,13 @@ public class CreationProjet extends AppCompatActivity {
                     sgbd.close();
 
                     startActivity(intent);
+                    fin();
                 }
             }
+
+
         });
     }
-}
+    public void fin(){
+        this.finish();
+}}

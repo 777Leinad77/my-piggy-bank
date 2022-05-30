@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetBudget">
         <activity
-            android:name=".ProjetModif"
+            android:name=".calendrier.CalendrierActivity"
             android:exported="false" />
         <activity
-            android:name=".depense.OperationInfo"
+            android:name=".projet.ProjetModif"
+            android:exported="false" />
+        <activity
+            android:name=".operation.OperationInfo"
             android:exported="false" />
         <activity
             android:name=".projet.ProjetInfo"
-            android:exported="false" />
-        <activity
-            android:name=".projet.ProjetActivity"
             android:exported="false" />
         <activity
             android:name=".projet.CreationProjet"

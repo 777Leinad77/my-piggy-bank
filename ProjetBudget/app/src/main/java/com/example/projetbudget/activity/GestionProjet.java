@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.projetbudget.databinding.GestionProjetBinding;
-import com.example.projetbudget.projet.SectionsPagerGestionProjet;
-import com.google.android.material.tabs.TabLayout;
 
 public class GestionProjet extends AppCompatActivity {
 
@@ -20,11 +18,6 @@ public class GestionProjet extends AppCompatActivity {
         binding2 = GestionProjetBinding.inflate(getLayoutInflater());
         setContentView(binding2.getRoot());
 
-        SectionsPagerGestionProjet SectionsPagerGestionProjet = new SectionsPagerGestionProjet(this, getSupportFragmentManager());
-        ViewPager viewPager = binding2.viewPager300;
-        viewPager.setAdapter(SectionsPagerGestionProjet);
-        TabLayout tabs = binding2.tab300;
-        tabs.setupWithViewPager(viewPager);
 
     }
 }

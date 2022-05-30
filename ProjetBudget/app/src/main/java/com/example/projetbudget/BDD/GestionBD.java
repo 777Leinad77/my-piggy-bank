@@ -83,32 +83,34 @@ public class GestionBD {
         TypeOperation cat0 = new TypeOperation(0, "choisir un type", "categOpe");
         Categ.add(cat0);
         while (cursor1.moveToNext() && cursor2.moveToNext()) {
-            TypeOperation cat = new TypeOperation(cursor1.getInt(0), cursor2.getString(0), "categOpe");
-            Categ.add(cat);
+            if (cursor2.getString(0).equals("Projet")) {
+            } else {
+                TypeOperation cat = new TypeOperation(cursor1.getInt(0), cursor2.getString(0), "categOpe");
+                Categ.add(cat);
+            }
+
         }
         return Categ;
 
     }
 
-    public ArrayList<TypeFrequence> getFraqu() {
-        Log.i("TestBD_getFraqu", "ouverture de getCateg");
+    public ArrayList<TypeFrequence> getFrequ() {
+        Log.i("TestBD_getFrequ", "ouverture de getCateg");
         ArrayList<TypeFrequence> Frequ = new ArrayList<TypeFrequence>();
-        Log.i("TestBD_getFraqu", "appré ArryList");
+        Log.i("TestBD_getFrequ", "appré ArryList");
         String req1 = "select IdFrequ from Frquence";
         Cursor cursor1 = maBase.rawQuery(req1, null, null);
-        Log.i("TestBD_getFraqu", "cursor1 : ");
+        Log.i("TestBD_getFrequ", "cursor1 : ");
         String req2 = "select Type from Frquence";
         Cursor cursor2 = maBase.rawQuery(req2, null, null);
-        Log.i("TestBD_getFraqu", "cursor2 : ");
-        TypeFrequence fre0 = new TypeFrequence(0, "choisir un type", "fequenceOpe");
-        Frequ.add(fre0);
+        Log.i("TestBD_getFrequ", "cursor2 : ");
         while (cursor1.moveToNext() && cursor2.moveToNext()) {
             TypeFrequence fre = new TypeFrequence(cursor1.getInt(0), cursor2.getString(0), "fequenceOpe");
             Frequ.add(fre);
         }
         return Frequ;
     }
-
+/*
     public void nouvOperationS(String nom, int montant, String type, int categ ) {
         Date date = new Date();
         ContentValues cv = new ContentValues();
@@ -119,26 +121,30 @@ public class GestionBD {
         cv.put("IdCateg", categ);
         maBase.insert("Operation",null, cv);
     }
+ */
+
     public void suprOperation(String nom){
-        maBase.delete("Operation","NomOperation=?", new String[]{nom});
         Log.i("TestBD_SuprOperation", "nom de la table " + nom);
         String req = "select NomOperation, MontantOp, TypeOperation from Operation";
         Cursor cursor = maBase.rawQuery(req, null, null);
         while (cursor.moveToNext()) {
             Log.i("TestBD_SuprOperation", "cursor = " + cursor.getString(0));
-            if (cursor.getString(0) == nom) {
+            Log.i("TestBD_SuprOperation", "test :" + cursor.getString(0) + "==" + nom +";");
+            if (cursor.getString(0).equals(nom)) {
+                Log.i("TestBD_SuprOperation", "test ok");
                 if (cursor.getString(2).length() == 7) {
-                    valeurMoins(cursor.getString(1));
-                } else if (cursor.getString(2).length() == 4) {
                     valeurPlus(cursor.getString(1));
+                } else if (cursor.getString(2).length() == 4) {
+                    valeurMoins(cursor.getString(1));
                 } else {
                     Log.i("TestBD_SuprOperation", "ERREUR Dépense ou Gain. cursor = " + cursor.getString(2));
                 }
             }
         }
+        maBase.delete("Operation","NomOperation=?", new String[]{nom});
     }
 
-    public void nouvOperationP(String nom, int montant, String type, int categ, int frequ, String dateFrequ ) {
+    public void nouvOperationP(String nom, int montant, String type, int categ ) {
         Date date = new Date();
         ContentValues cv = new ContentValues();
         cv.put("NomOperation",nom);
@@ -146,8 +152,7 @@ public class GestionBD {
         cv.put("Date", String.valueOf(date));
         cv.put("TypeOperation",type);
         cv.put("IdCateg", categ);
-        cv.put("IdFrequ", frequ);
-        cv.put("DateFrequ", dateFrequ);
+
         maBase.insert("Operation",null, cv);
     }
 
@@ -160,6 +165,45 @@ public class GestionBD {
         cv.put("DateCréation", String.valueOf(date));
         cv.put("DateObjectif", dateFin);
         maBase.insert("Projet",null, cv);
+    }
+
+    public void enregProjet(String nom, String nonModi, int actu) {
+        ContentValues cv = new ContentValues();
+        cv.put("Nom", nonModi);
+        cv.put("ObjecActuelle", actu);
+        maBase.update("Projet", cv, "Nom=?", new String[]{nom});
+    }
+
+    public void supProjet(String nom) {
+        Log.i("TestBD_SupProjet", "dedan");
+        String req = "select Nom, ObjecActuelle from Projet";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        Log.i("TestBD_SupProjet", "cursor = " + cursor.getCount());
+        while (cursor.moveToNext()) {
+            Log.i("TestBD_SupProjet", "test :" + cursor.getString(0) + "==" + nom +";");
+            if (cursor.getString(0).equals(nom)) {
+                valeurPlus(cursor.getString(1));
+            }
+        }
+        maBase.delete("Projet","Nom=?", new String[]{nom});
+    }
+
+    public void supProjetFini(String nom) {
+        String req = "select Nom, Objectif from Projet";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        while (cursor.moveToNext()) {
+            if (cursor.getString(0).equals(nom)) {
+                Date date = new Date();
+                ContentValues cv = new ContentValues();
+                cv.put("NomOperation",nom);
+                cv.put("MontantOp", cursor.getInt(1));
+                cv.put("Date", String.valueOf(date));
+                cv.put("TypeOperation","Dépense");
+                cv.put("IdCateg", 1);
+                maBase.insert("Operation",null, cv);
+            }
+        }
+        maBase.delete("Projet","Nom=?", new String[]{nom});
     }
 
     //Les info des projet
