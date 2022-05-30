@@ -47,7 +47,7 @@ public class PlaceholderFragment extends Fragment {
         GestionBD sgbd = new GestionBD(getContext());
 
 
-       GDP = rootView.findViewById(R.id.TVGDP);
+        GDP = rootView.findViewById(R.id.TVGDP);
 
         sgbd.open();
         GDP.setText(sgbd.donnerLaValeur());

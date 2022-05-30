@@ -25,7 +25,7 @@ public class ProjetInfo extends AppCompatActivity {
     String data1, data2, data3, nomModif;
     int actu, testActu, memoir;
     Button modif, ajout, retour1, retour2, enregister, finProj;
-    Intent activityRetour;
+    Intent activityRetour, activityModif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

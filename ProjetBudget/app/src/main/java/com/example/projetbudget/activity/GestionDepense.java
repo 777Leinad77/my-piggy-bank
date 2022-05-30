@@ -22,6 +22,8 @@ public class GestionDepense extends AppCompatActivity {
         SectionsPagerGestionDepense SectionsPagerGestionDepense = new SectionsPagerGestionDepense(this, getSupportFragmentManager());
         ViewPager viewPager = binding3.viewPager400;
         viewPager.setAdapter(SectionsPagerGestionDepense);
+        //TabLayout tabs = binding3.tab400;
+        //tabs.setupWithViewPager(viewPager);
 
     }
 }

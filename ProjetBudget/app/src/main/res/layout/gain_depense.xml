@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout4"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".operation.">
+    android:layout_height="match_parent">
 
 
     <RadioGroup
@@ -129,14 +128,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/ETNomOpeP"
         app:layout_constraintStart_toStartOf="@+id/montantOpeP"
         app:layout_constraintTop_toTopOf="@+id/ETNomOpeP" />
-
-    <TextView
-        android:id="@+id/erreuDateFrequP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/erreurNomP"
-        app:layout_constraintStart_toStartOf="@+id/erreurNomP"
-        tools:layout_editor_absoluteY="90dp" />
 
     <Button
         android:id="@+id/retourP"

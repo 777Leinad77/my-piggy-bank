@@ -29,10 +29,6 @@
             android:exported="true"
             android:theme="@style/Theme.ProjetBudget.NoActionBar" />
         <activity
-            android:name=".activity.GestionProjet"
-            android:exported="true"
-            android:theme="@style/Theme.ProjetBudget.NoActionBar" />
-        <activity
             android:name=".activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.ProjetBudget.NoActionBar" />

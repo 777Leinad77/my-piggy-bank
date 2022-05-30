@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.projetbudget.metier.TypeFrequence;
 import com.example.projetbudget.metier.TypeOperation;
 
 import java.util.ArrayList;
@@ -93,7 +92,7 @@ public class GestionBD {
         return Categ;
 
     }
-
+    /*
     public ArrayList<TypeFrequence> getFrequ() {
         Log.i("TestBD_getFrequ", "ouverture de getCateg");
         ArrayList<TypeFrequence> Frequ = new ArrayList<TypeFrequence>();
@@ -109,7 +108,7 @@ public class GestionBD {
             Frequ.add(fre);
         }
         return Frequ;
-    }
+    }*/
 /*
     public void nouvOperationS(String nom, int montant, String type, int categ ) {
         Date date = new Date();
@@ -144,7 +143,7 @@ public class GestionBD {
         maBase.delete("Operation","NomOperation=?", new String[]{nom});
     }
 
-    public void nouvOperationP(String nom, int montant, String type, int categ ) {
+    public void nouvOperationP(String nom, int montant, String type, int categ) {
         Date date = new Date();
         ContentValues cv = new ContentValues();
         cv.put("NomOperation",nom);
@@ -152,7 +151,6 @@ public class GestionBD {
         cv.put("Date", String.valueOf(date));
         cv.put("TypeOperation",type);
         cv.put("IdCateg", categ);
-
         maBase.insert("Operation",null, cv);
     }
 

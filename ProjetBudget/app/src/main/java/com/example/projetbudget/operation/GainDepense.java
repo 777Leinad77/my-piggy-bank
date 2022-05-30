@@ -22,7 +22,6 @@ import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.MainActivity;
 import com.example.projetbudget.databinding.GainDepenseBinding;
-import com.example.projetbudget.metier.TypeFrequence;
 import com.example.projetbudget.metier.TypeOperation;
 
 import java.util.ArrayList;
@@ -36,8 +35,6 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private GainDepenseBinding binding;
-    ArrayList<TypeFrequence> frequ = new ArrayList<TypeFrequence>();
-    Spinner spinnerFrequ;
     ArrayList<TypeOperation> categ = new ArrayList<TypeOperation>();
     Spinner spinnerCateg;
     Intent intent;
@@ -47,14 +44,10 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
     RadioButton RB;
     EditText nom;
     EditText montant;
-    EditText dateFrequ;
     TextView ENom;
     TextView EMontant;
     TextView ETypeCateg;
-    TextView ETypeFrequ;
-    TextView EDateFrequ;
     int idcat;
-    int idfrequ;
 
     public static GainDepense newInstance(int index) {
         GainDepense fragment = new GainDepense();
@@ -74,24 +67,20 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
         intent = new Intent(getContext(), MainActivity.class);
         View rootView = inflater.inflate(R.layout.gain_depense, container ,false);
 
-        //spinnerFrequ = rootView.findViewById(R.id.SFrequenceP);
+
         spinnerCateg = rootView.findViewById(R.id.STypeOpeP);
 
         RG = rootView.findViewById((R.id.RGOpeP));
 
         nom = rootView.findViewById(R.id.ETNomOpeP);
         montant = rootView.findViewById(R.id.ETMontantOpeP);
-        //dateFrequ = rootView.findViewById(R.id.ETDateFrequOpeP);
 
         ENom = rootView.findViewById(R.id.erreurNomP);
         EMontant = rootView.findViewById(R.id.erreurMontantP);
         ETypeCateg = rootView.findViewById(R.id.erreurTypeCategP);
-       //ETypeFrequ = rootView.findViewById(R.id.erreuTypeFrequP);
-        EDateFrequ = rootView.findViewById(R.id.erreuDateFrequP);
 
         sgbd.open();
         categ = sgbd.getCateg();
-        frequ = sgbd.getFrequ();
         sgbd.close();
 
         //spinercategori---------
@@ -126,7 +115,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                     String nomValeur = nom.getText().toString();
                     String montantValeur = montant.getText().toString();
 
-                    Log.i("TestSuppressionDepense", "nous avons : " + idfrequ + " / " + RB.getText() + " / " + nomValeur + " / " + idcat + " / " + montantValeur + " .");
+                    Log.i("TestSuppressionDepense", "nous avons : " + RB.getText() + " / " + nomValeur + " / " + idcat + " / " + montantValeur + " .");
 
                     boolean bool1;
                     if (nomValeur.length()>0 ) {
@@ -164,7 +153,6 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                         bool3 = false;
                     }
                     Log.i("TestSuppressionDepense", "bool3 est : " + bool3);
-
 
                     if (bool1 == true && bool2 == true && bool3 == true) {
                         montantSint = Integer.parseInt(montantValeur);

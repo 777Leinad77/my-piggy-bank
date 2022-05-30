@@ -1,6 +1,5 @@
 package com.example.projetbudget.operation;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 
 import androidx.annotation.Nullable;
@@ -13,7 +12,8 @@ import com.example.projetbudget.R;
 
 public class SectionsPagerGestionDepense extends FragmentPagerAdapter {
 
-
+    @StringRes
+    private static final int[] TAB_TITLES = new int[]{ R.string.tab_text_2};
     private final Context mContext;
 
     public SectionsPagerGestionDepense(Context context, FragmentManager fm) {
@@ -29,6 +29,12 @@ public class SectionsPagerGestionDepense extends FragmentPagerAdapter {
             return AjoutDepense.newInstance(0);
         }*/
        return GainDepense.newInstance(1);
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mContext.getResources().getString(TAB_TITLES[position]);
     }
 
     @Override

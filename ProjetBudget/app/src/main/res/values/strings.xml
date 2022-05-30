@@ -3,6 +3,8 @@
     <string name="tab_text_1" translatable="false">Menu</string>
     <string name="tab_text_2" translatable="false">Liste des projets</string>
     <string name="tab_text_3" translatable="false">Historique d opérations</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
 
     <string-array name="SFrequenceP">
         <item>un seul jour</item>
@@ -13,6 +15,4 @@
         <item>semestriel</item>
         <item>annuel</item>
     </string-array>
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
