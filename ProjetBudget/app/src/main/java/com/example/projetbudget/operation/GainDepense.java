@@ -22,7 +22,6 @@ import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
 import com.example.projetbudget.activity.MainActivity;
 import com.example.projetbudget.databinding.GainDepenseBinding;
-import com.example.projetbudget.metier.TypeFrequence;
 import com.example.projetbudget.metier.TypeOperation;
 
 import java.util.ArrayList;
@@ -36,8 +35,6 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private GainDepenseBinding binding;
-    ArrayList<TypeFrequence> frequ = new ArrayList<TypeFrequence>();
-    Spinner spinnerFrequ;
     ArrayList<TypeOperation> categ = new ArrayList<TypeOperation>();
     Spinner spinnerCateg;
     Intent intent;
@@ -47,12 +44,10 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
     RadioButton RB;
     EditText nom;
     EditText montant;
-    EditText dateFrequ;
     TextView ENom;
     TextView EMontant;
     TextView ETypeCateg;
     int idcat;
-    int idfrequ;
 
     public static GainDepense newInstance(int index) {
         GainDepense fragment = new GainDepense();
@@ -86,7 +81,6 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
 
         sgbd.open();
         categ = sgbd.getCateg();
-        frequ = sgbd.getFrequ();
         sgbd.close();
 
         //spinercategori---------
@@ -117,13 +111,11 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                     RB = rootView.findViewById(radioId);
 
                     idcat = spinnerCateg.getSelectedItemPosition();
-                    idfrequ = spinnerFrequ.getSelectedItemPosition() + 1;
 
                     String nomValeur = nom.getText().toString();
                     String montantValeur = montant.getText().toString();
-                    String DateFrequ = dateFrequ.getText().toString();
 
-                    Log.i("TestSuppressionDepense", "nous avons : " + idfrequ + " / " + RB.getText() + " / " + nomValeur + " / " + idcat + " / " + montantValeur + " .");
+                    Log.i("TestSuppressionDepense", "nous avons : " + RB.getText() + " / " + nomValeur + " / " + idcat + " / " + montantValeur + " .");
 
                     boolean bool1;
                     if (nomValeur.length()>0 ) {
@@ -165,7 +157,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                     if (bool1 == true && bool2 == true && bool3 == true) {
                         montantSint = Integer.parseInt(montantValeur);
                         sgbd.open();
-                        sgbd.nouvOperationP(nomValeur, montantSint, String.valueOf(RB.getText()), idcat, idfrequ, DateFrequ);
+                        sgbd.nouvOperationP(nomValeur, montantSint, String.valueOf(RB.getText()), idcat);
                         if (RB.getText().length() == 4){
                             sgbd.valeurPlus(montantValeur);
                         }else if(RB.getText().length() == 7) {

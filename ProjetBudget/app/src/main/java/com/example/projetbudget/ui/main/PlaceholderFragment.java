@@ -1,8 +1,6 @@
 package com.example.projetbudget.ui.main;
 
-import android.app.Fragment;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
@@ -29,8 +27,8 @@ public class PlaceholderFragment extends Fragment {
 
     private PageViewModel pageViewModel;
     private FragmentMainBinding binding;
-    Intent intent, intent1 ,intent2 ,intent3;
-    Button gp, gd, piff;
+    Intent intent, intent1 ,intent3;
+    Button gp, gd;
     TextView GDP;
 
     public static PlaceholderFragment newInstance(int index) {
@@ -41,7 +39,6 @@ public class PlaceholderFragment extends Fragment {
         return fragment;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -50,13 +47,14 @@ public class PlaceholderFragment extends Fragment {
         GestionBD sgbd = new GestionBD(getContext());
 
 
-       GDP = rootView.findViewById(R.id.TVGDP);
+        GDP = rootView.findViewById(R.id.TVGDP);
 
         sgbd.open();
         GDP.setText(sgbd.donnerLaValeur());
         sgbd.close();
         //Log.i("TestPlaceholderFragment", "S1 = " + S1[0] + " / " + S1[1]);
 
+        //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
         intent3 = new Intent(this.getContext(), ProjetInfo.class);
         intent = new Intent(this.getContext(), CreationProjet.class);
         intent1 = new Intent(this.getContext(), GestionDepense.class);
@@ -82,19 +80,8 @@ public class PlaceholderFragment extends Fragment {
                 }
             }
         });
-
-    piff = rootView.findViewById(R.id.piff);
-        piff.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (v == piff) {
-                startActivity(intent2);
-
-            }
-        }
-    });
         return rootView;
-}
+    }
 
     @Override
     public void onDestroyView() {

@@ -62,7 +62,8 @@
         android:id="@+id/TVErreurNomProjet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/ETNomProjet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETNomProjet" />
 
     <EditText
@@ -72,30 +73,33 @@
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/BCreationProjet"
-        app:layout_constraintTop_toBottomOf="@+id/ETMontantProjet"
-        tools:layout_editor_absoluteX="104dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETMontantProjet" />
 
     <TextView
         android:id="@+id/TVErreurMontantProjet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/ETMontantProjet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETMontantProjet" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Quel montant voulez-vous mettre tous jours (non définitif ) ?"
         app:layout_constraintBottom_toTopOf="@+id/ETEstimationProjet"
-        app:layout_constraintEnd_toEndOf="@+id/ETEstimationProjet"
-        app:layout_constraintStart_toStartOf="@+id/ETEstimationProjet" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/TVErreurEstimationProjet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/ETEstimationProjet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETEstimationProjet" />
 
     <Button
