@@ -63,7 +63,7 @@ public class StartActivity extends AppCompatActivity {
                             sgbd.close();
                             erreur.setText("");
                             startActivity(activity2);
-
+                            fin();
                         } else {
                             erreur.setText("Un des caractère n'est pas un chiffre");
                         }
@@ -73,7 +73,10 @@ public class StartActivity extends AppCompatActivity {
         } else {
             Log.i("TestStart", "if = false");
             startActivity(activity2);
+            fin();
         }
     }
-
+    private void fin(){
+        this.finish();
+    }
 }
