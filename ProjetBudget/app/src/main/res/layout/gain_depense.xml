@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ETNomOpeP"
         app:layout_constraintEnd_toEndOf="@+id/ETNomOpeP"
         app:layout_constraintStart_toStartOf="@+id/ETNomOpeP"
-        app:layout_constraintTop_toBottomOf="@+id/ETDateFrequOpeP">
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/RBDepense"
@@ -85,37 +85,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RGOpeP" />
 
-    <Spinner
-        android:id="@+id/SFrequenceP"
-        android:layout_width="205dp"
-        android:layout_height="42dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/typeFrequOpeP"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/dateFrequOpeP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dade de la  Frequence :"
-        app:layout_constraintBottom_toBottomOf="@+id/ETDateFrequOpeP"
-        app:layout_constraintEnd_toStartOf="@+id/ETDateFrequOpeP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ETDateFrequOpeP" />
-
-    <EditText
-        android:id="@+id/ETDateFrequOpeP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="datetime"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/RGOpeP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dateFrequOpeP"
-        app:layout_constraintTop_toBottomOf="@+id/SFrequenceP"
-        tools:ignore="SpeakableTextPresentCheck" />
-
 
     <TextView
         android:id="@+id/erreurNomP"
@@ -159,32 +128,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/ETNomOpeP"
         app:layout_constraintStart_toStartOf="@+id/montantOpeP"
         app:layout_constraintTop_toTopOf="@+id/ETNomOpeP" />
-
-    <TextView
-        android:id="@+id/erreuTypeFrequP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/erreuDateFrequP"
-        app:layout_constraintStart_toStartOf="@+id/erreuDateFrequP"
-        app:layout_constraintTop_toBottomOf="@+id/SFrequenceP" />
-
-    <TextView
-        android:id="@+id/typeFrequOpeP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Type de  Frequence :"
-        app:layout_constraintBottom_toBottomOf="@+id/SFrequenceP"
-        app:layout_constraintEnd_toStartOf="@+id/SFrequenceP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/SFrequenceP" />
-
-    <TextView
-        android:id="@+id/erreuDateFrequP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/erreurNomP"
-        app:layout_constraintStart_toStartOf="@+id/erreurNomP"
-        app:layout_constraintTop_toBottomOf="@+id/ETDateFrequOpeP" />
 
     <Button
         android:id="@+id/retourP"

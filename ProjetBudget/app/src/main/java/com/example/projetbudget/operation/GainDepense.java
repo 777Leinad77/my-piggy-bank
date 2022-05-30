@@ -51,8 +51,6 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
     TextView ENom;
     TextView EMontant;
     TextView ETypeCateg;
-    TextView ETypeFrequ;
-    TextView EDateFrequ;
     int idcat;
     int idfrequ;
 
@@ -74,43 +72,22 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
         intent = new Intent(getContext(), MainActivity.class);
         View rootView = inflater.inflate(R.layout.gain_depense, container ,false);
 
-        spinnerFrequ = rootView.findViewById(R.id.SFrequenceP);
+
         spinnerCateg = rootView.findViewById(R.id.STypeOpeP);
 
         RG = rootView.findViewById((R.id.RGOpeP));
 
         nom = rootView.findViewById(R.id.ETNomOpeP);
         montant = rootView.findViewById(R.id.ETMontantOpeP);
-        dateFrequ = rootView.findViewById(R.id.ETDateFrequOpeP);
 
         ENom = rootView.findViewById(R.id.erreurNomP);
         EMontant = rootView.findViewById(R.id.erreurMontantP);
         ETypeCateg = rootView.findViewById(R.id.erreurTypeCategP);
-        ETypeFrequ = rootView.findViewById(R.id.erreuTypeFrequP);
-        EDateFrequ = rootView.findViewById(R.id.erreuDateFrequP);
 
         sgbd.open();
         categ = sgbd.getCateg();
         frequ = sgbd.getFrequ();
         sgbd.close();
-
-        //spinerfrequence---------
-        spinnerFrequ.setOnItemSelectedListener(this);
-        List<String> fequences = new ArrayList<String>();
-        for(TypeFrequence s : frequ){
-            if(s.getLibelle()=="fequenceOpe") {
-                fequences.add(s.getType());
-            }
-        }
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, fequences);
-
-        // Drop down layout style - list view with radio button
-        dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        spinnerFrequ.setAdapter(dataAdapter1);
-        //-------------------------
 
         //spinercategori---------
         spinnerCateg.setOnItemSelectedListener(this);
@@ -185,17 +162,7 @@ public class GainDepense extends Fragment implements AdapterView.OnItemSelectedL
                     }
                     Log.i("TestSuppressionDepense", "bool3 est : " + bool3);
 
-                    boolean bool4;
-                    if (DateFrequ.length()>0) {
-                        EDateFrequ.setText("");
-                        bool4 = true;
-                    }else {
-                        EDateFrequ.setText("La date doit comporter au moins un caractère");
-                        bool4 = false;
-                    }
-                    Log.i("TestSuppressionDepense", "bool4 est : " + bool4);
-
-                    if (bool1 == true && bool2 == true && bool3 == true && bool4 == true) {
+                    if (bool1 == true && bool2 == true && bool3 == true) {
                         montantSint = Integer.parseInt(montantValeur);
                         sgbd.open();
                         sgbd.nouvOperationP(nomValeur, montantSint, String.valueOf(RB.getText()), idcat, idfrequ, DateFrequ);
