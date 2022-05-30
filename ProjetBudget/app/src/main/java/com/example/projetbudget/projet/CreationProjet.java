@@ -101,6 +101,7 @@ public class CreationProjet extends AppCompatActivity {
        retour.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               startActivity(intent);
                fin();
            }
        });
