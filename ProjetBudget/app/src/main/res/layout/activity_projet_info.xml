@@ -42,7 +42,7 @@
         android:id="@+id/BProjetSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="submit"
+        android:text="VALIDER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ETAjoutProj"
@@ -65,16 +65,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retour"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/BProjEnregister"
-        app:layout_constraintTop_toBottomOf="@+id/ETAjoutProj" />
+        app:layout_constraintBottom_toBottomOf="@+id/BProjEnregister"
+        app:layout_constraintEnd_toStartOf="@+id/BProjEnregister"
+        app:layout_constraintHorizontal_bias="0.289"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BProjEnregister"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/BProjModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Modifié"
+        android:text="Modifier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,11 +92,12 @@
         android:id="@+id/BProjEnregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
         android:text="Enregister"
-        app:layout_constraintBottom_toBottomOf="@+id/BProjRetour1"
-        app:layout_constraintEnd_toStartOf="@+id/BProjRetour1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BProjRetour1" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786" />
 
     <TextView
         android:id="@+id/TVAjoutErreur"

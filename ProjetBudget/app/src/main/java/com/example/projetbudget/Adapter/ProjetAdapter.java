@@ -1,5 +1,6 @@
 package com.example.projetbudget.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -17,7 +18,7 @@ import com.example.projetbudget.projet.ProjetInfo;
 
 public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHolder> {
 
-    private MainActivity theThis;
+    private MainActivity LeContext;
     String[] data1, data2, data3;
     Context context;
 
@@ -26,7 +27,7 @@ public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHold
         data1 = nom;
         data2 = acluelle;
         data3 = objectif;
-        //Log.i("TestProjetAdapter", "data1 = " + data1[0] + " / " + data1[1]);
+
     }
 
     @NonNull
@@ -38,7 +39,7 @@ public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.myText1.setText(data1[position]);
         holder.myText2.setText(data2[position]);
         holder.myText3.setText(data3[position]);
@@ -76,6 +77,6 @@ public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHold
         }
     }
     private void fin(){
-        theThis.finish();
+        LeContext.finish();
     }
 }

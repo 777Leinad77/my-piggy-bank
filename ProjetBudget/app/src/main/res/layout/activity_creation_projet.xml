@@ -54,8 +54,9 @@
         android:layout_height="wrap_content"
         android:text="Créer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/BRetourProjet"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintStart_toEndOf="@+id/BRetourProjet"
         app:layout_constraintTop_toBottomOf="@+id/ETEstimationProjet" />
 
     <TextView
@@ -108,8 +109,9 @@
         android:layout_height="wrap_content"
         android:text="Retour"
         app:layout_constraintBottom_toBottomOf="@+id/BCreationProjet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/BCreationProjet"
-        app:layout_constraintTop_toTopOf="@+id/BCreationProjet" />
+        app:layout_constraintEnd_toStartOf="@+id/BCreationProjet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BCreationProjet"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

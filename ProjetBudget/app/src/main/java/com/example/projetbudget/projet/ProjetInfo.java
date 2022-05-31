@@ -91,7 +91,7 @@ public class ProjetInfo extends AppCompatActivity {
                         public void onClick(View v) {
                             AlertDialog.Builder myPopup1 = new AlertDialog.Builder(theThis);
                             myPopup1.setTitle("Supression");
-                            myPopup1.setMessage("Etes vous sur de vouloir supprimer le projet : " + data1 + ", alors q'il n'est pas fini ?");
+                            myPopup1.setMessage("Etes vous sur de vouloir supprimer le projet : " + data1 + ", alors qu'il n'est pas fini ?");
                             myPopup1.setPositiveButton("OUi", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {

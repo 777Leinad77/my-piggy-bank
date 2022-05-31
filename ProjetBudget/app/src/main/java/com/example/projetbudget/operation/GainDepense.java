@@ -145,8 +145,6 @@ public class GainDepense extends AppCompatActivity implements AdapterView.OnItem
                         sgbd.valeurMoins(montantValeur);
                     }
                     sgbd.close();
-                    //Log.i("changement", TheThis);
-
                     startActivity(intent);
                     fin();
                 }

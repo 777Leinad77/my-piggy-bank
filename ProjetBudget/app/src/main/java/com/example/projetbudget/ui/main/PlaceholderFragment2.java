@@ -21,7 +21,6 @@ public class PlaceholderFragment2 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private PageViewModel pageViewModel;
     RecyclerView RVOperation;
     String[] S1, S2, S3;
 

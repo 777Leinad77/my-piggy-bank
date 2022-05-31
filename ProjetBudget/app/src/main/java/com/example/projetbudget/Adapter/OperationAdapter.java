@@ -20,7 +20,7 @@ import com.example.projetbudget.ui.main.PlaceholderFragment1;
 
 public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.MyViewHolder> {
 
-    private MainActivity theThis;
+    private MainActivity LeContext;
     String[] data1, data2, data3;
     Context context;
 
@@ -51,7 +51,7 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.MyVi
                 Intent intent = new Intent(context, MainActivity.class);
                 GestionBD sgbd = new GestionBD(context);
                 AlertDialog.Builder myPopup = new AlertDialog.Builder(context);
-                myPopup.setTitle("supretion");
+                myPopup.setTitle("supression");
                 myPopup.setMessage("êtes-vous sur de vouloir suprimer " + data1[position]);
                 myPopup.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
                     @Override
@@ -69,11 +69,6 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.MyVi
                     }
                 });
                 myPopup.show();
-                /*Intent intent = new Intent(context, OperationInfo.class);
-                intent.putExtra("data1",data1[position]);
-                intent.putExtra("data2",data2[position]);
-                intent.putExtra("data3",data3[position]);
-                context.startActivity(intent);*/
             }
         });
     }
@@ -98,6 +93,6 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.MyVi
         }
     }
     private void fin(){
-        theThis.finish();
+        LeContext.finish();
     }
 }

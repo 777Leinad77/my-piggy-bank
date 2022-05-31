@@ -39,7 +39,7 @@
         android:id="@+id/BModifiRetour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Retour au projet"
+        android:text="enregistrer"
         app:layout_constraintEnd_toEndOf="@+id/BProjSupp"
         app:layout_constraintStart_toStartOf="@+id/BProjSupp"
         app:layout_constraintTop_toBottomOf="@+id/BProjSupp" />

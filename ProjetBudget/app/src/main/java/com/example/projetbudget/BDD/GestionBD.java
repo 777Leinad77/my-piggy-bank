@@ -276,26 +276,7 @@ public class GestionBD {
             Ltype[i] = cursor.getString(1);
             i = i + 1;
         }
-        //Test échouer
-        /*String req1 = "select NomOperation, IdCateg from Operation";
-        Cursor cursor1 = maBase.rawQuery(req1, null, null);
-        String req2 = "select Type, IdCateg from Categorie";
-        Cursor cursor2 = maBase.rawQuery(req2, null, null);
-        String[] Ltype = new String[cursor1.getCount()];
-        int i = 0;
-        Log.i("TestBD_TypeOperation", "cursor.getCount() = " + cursor1.getCount());
-        while (cursor1.moveToNext()) {
-            Log.i("TestBD_TypeOperation", "1");
-            while (cursor2.moveToNext()) {
-                Log.i("TestBD_TypeOperation", "cursor1 = " + cursor1.getString(1) + ", cursor2 = " + cursor2.getString(1));
-                if (cursor1.getString(1) == cursor2.getString(1)) {
-                    Ltype[i] = cursor2.getString(0);
-                    Log.i("TestBD_TypeOperation", "cursor1 = " + cursor1.getString(0) + ", cursor2 = " + cursor2.getString(0));
-                }
-            }
-            cursor2.moveToFirst();
-            i += 1;
-        }*/
+
         return Ltype;
     }
 
@@ -318,5 +299,5 @@ public class GestionBD {
         }
         return Lmontant;
     }
-    //=====================================================================================
+
 }

@@ -16,7 +16,6 @@ import com.example.projetbudget.R;
 import com.example.projetbudget.activity.MainActivity;
 import com.example.projetbudget.operation.GainDepense;
 import com.example.projetbudget.projet.CreationProjet;
-import com.example.projetbudget.projet.ProjetInfo;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -26,9 +25,8 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private MainActivity LeContext;
-    private PageViewModel pageViewModel;
 
-    Intent intent, intent1 ,intent3;
+    Intent intent, intent1;
     Button gp, gd;
     TextView GDP;
 
@@ -53,12 +51,8 @@ public class PlaceholderFragment extends Fragment {
         sgbd.open();
         GDP.setText(sgbd.donnerLaValeur());
         sgbd.close();
-        //Log.i("TestPlaceholderFragment", "S1 = " + S1[0] + " / " + S1[1]);
 
-        //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
-        intent3 = new Intent(this.getContext(), ProjetInfo.class);
         intent = new Intent(this.getContext(), CreationProjet.class);
-        //intent1 = new Intent(this.getContext(), GestionDepense.class);
         intent1 = new Intent(this.getContext(), GainDepense.class);
 
         gp = rootView.findViewById(R.id.gp);
