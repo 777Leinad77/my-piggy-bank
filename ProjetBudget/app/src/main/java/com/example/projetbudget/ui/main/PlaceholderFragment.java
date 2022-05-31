@@ -25,7 +25,7 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private MainActivity theThis;
+    private MainActivity LeContext;
     private PageViewModel pageViewModel;
 
     Intent intent, intent1 ,intent3;
@@ -91,6 +91,6 @@ public class PlaceholderFragment extends Fragment {
 
     }
     private void fin(){
-        theThis.finish();
+        LeContext.finish();
     }
 }
