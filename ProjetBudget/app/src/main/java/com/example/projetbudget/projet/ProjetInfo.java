@@ -23,8 +23,9 @@ public class ProjetInfo extends AppCompatActivity {
     TextView nom, actuelle, objectif, ajoutText, textAjout;
     EditText ajoutProj;
     String data1, data2, data3, nomModif;
+    String[] nomRecup;
     int actu, testActu, memoir;
-    Button modif, ajout, retour1, retour2, enregister, finProj;
+    Button modif, ajout, retour1, retour2, enregister, finProj, finProjEnd;
     Intent activityRetour, activityModif;
 
     @Override
@@ -74,8 +75,9 @@ public class ProjetInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v == modif) {
+                    nomRecup = nom.getText().toString().split(" : ");
                     ProjetModif projetModif = new ProjetModif(theThis);
-                    projetModif.setModifNom(data1);
+                    projetModif.setModifNom(nomRecup[1]);
                     projetModif.retour.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -209,6 +211,8 @@ public class ProjetInfo extends AppCompatActivity {
                 sgbd.open();
                 sgbd.supProjetFini(data1);
                 sgbd.close();
+                startActivity(activityRetour);
+                fin();
             }
         });
     }
