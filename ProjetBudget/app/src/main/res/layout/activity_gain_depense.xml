@@ -136,13 +136,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/validerP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/validerP"
-        app:layout_constraintTop_toTopOf="@+id/validerP" /><![CDATA[
+        app:layout_constraintTop_toTopOf="@+id/validerP" />
 
-
-
-    "/>
-
-
-
-]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

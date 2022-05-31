@@ -60,7 +60,7 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.MyVi
                         sgbd.suprOperation(data1[position]);
                         sgbd.close();
                         context.startActivity(intent);
-                        fin();
+                        //fin();
                     }
                 });
                 myPopup.setNegativeButton("NON", new DialogInterface.OnClickListener() {

@@ -16,7 +16,6 @@ import com.example.projetbudget.R;
 import com.example.projetbudget.activity.MainActivity;
 import com.example.projetbudget.operation.GainDepense;
 import com.example.projetbudget.projet.CreationProjet;
-import com.example.projetbudget.projet.ProjetInfo;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -56,7 +55,7 @@ public class PlaceholderFragment extends Fragment {
         //Log.i("TestPlaceholderFragment", "S1 = " + S1[0] + " / " + S1[1]);
 
         //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
-        intent3 = new Intent(this.getContext(), ProjetInfo.class);
+        //intent3 = new Intent(this.getContext(), ProjetInfo.class);
         intent = new Intent(this.getContext(), CreationProjet.class);
         //intent1 = new Intent(this.getContext(), GestionDepense.class);
         intent1 = new Intent(this.getContext(), GainDepense.class);
@@ -67,7 +66,7 @@ public class PlaceholderFragment extends Fragment {
             public void onClick(View v) {
                 if (v == gp) {
                     startActivity(intent);
-                    fin();
+                    //fin();
                 }
             }
         });
@@ -78,7 +77,7 @@ public class PlaceholderFragment extends Fragment {
             public void onClick(View v) {
                 if (v == gd) {
                     startActivity(intent1);
-                    fin();
+                    //fin();
                 }
             }
         });
