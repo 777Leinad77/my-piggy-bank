@@ -52,7 +52,7 @@ public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHold
                 intent.putExtra("data2",data2[position]);
                 intent.putExtra("data3",data3[position]);
                 context.startActivity(intent);
-                fin();
+                //fin();
             }
         });
     }
