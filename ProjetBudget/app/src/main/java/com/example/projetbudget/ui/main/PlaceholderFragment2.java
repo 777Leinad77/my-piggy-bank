@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.projetbudget.Adapter.OperationAdapter;
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
-import com.example.projetbudget.databinding.FragmentMainBinding;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -23,7 +22,6 @@ public class PlaceholderFragment2 extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-    private FragmentMainBinding binding2;
     RecyclerView RVOperation;
     String[] S1, S2, S3;
 
@@ -64,6 +62,5 @@ public class PlaceholderFragment2 extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding2 = null;
     }
 }

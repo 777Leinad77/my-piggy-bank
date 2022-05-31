@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetBudget">
         <activity
-            android:name=".calendrier.CalendrierActivity"
-            android:exported="false" />
-        <activity
             android:name=".projet.ProjetModif"
             android:exported="false" />
         <activity
@@ -25,7 +22,7 @@
             android:name=".projet.CreationProjet"
             android:exported="false" />
         <activity
-            android:name=".activity.GestionDepense"
+            android:name=".operation.GainDepense"
             android:exported="true"
             android:theme="@style/Theme.ProjetBudget.NoActionBar" />
         <activity
