@@ -13,9 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.projetbudget.BDD.GestionBD;
 import com.example.projetbudget.R;
-import com.example.projetbudget.activity.GestionDepense;
 import com.example.projetbudget.activity.MainActivity;
-import com.example.projetbudget.databinding.FragmentMainBinding;
+import com.example.projetbudget.operation.GainDepense;
 import com.example.projetbudget.projet.CreationProjet;
 import com.example.projetbudget.projet.ProjetInfo;
 
@@ -28,12 +27,12 @@ public class PlaceholderFragment extends Fragment {
 
     private MainActivity theThis;
     private PageViewModel pageViewModel;
-    private FragmentMainBinding binding;
+
     Intent intent, intent1 ,intent3;
     Button gp, gd;
     TextView GDP;
 
-    public static PlaceholderFragment newInstance(int index) {
+    public static PlaceholderFragment newInstance( int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
@@ -44,7 +43,7 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment0, container, false);
 
         GestionBD sgbd = new GestionBD(getContext());
 
@@ -59,7 +58,8 @@ public class PlaceholderFragment extends Fragment {
         //intent = new Intent(getContext(), com.example.projetbudget.activity.GestionProjet.class);
         intent3 = new Intent(this.getContext(), ProjetInfo.class);
         intent = new Intent(this.getContext(), CreationProjet.class);
-        intent1 = new Intent(this.getContext(), GestionDepense.class);
+        //intent1 = new Intent(this.getContext(), GestionDepense.class);
+        intent1 = new Intent(this.getContext(), GainDepense.class);
 
         gp = rootView.findViewById(R.id.gp);
         gp.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +88,7 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+
     }
     private void fin(){
         theThis.finish();
