@@ -61,12 +61,12 @@ public class BDHelper extends SQLiteOpenHelper {
         db.insert("Categorie",null, cv1);
         cv1.put("Type", "Autres dépenses");
         db.insert("Categorie",null, cv1);
-        cv1.put("Type", "Abonnements et Télephonie");
+        cv1.put("Type", "Abonnements");
         db.insert("Categorie",null, cv1);
         cv1.put("Type", "Transports et véhicules");
         db.insert("Categorie",null, cv1);
 
-        ContentValues cv2 = new ContentValues();
+       /* ContentValues cv2 = new ContentValues();
         cv2.put("Type", "aujoud'hui");
         db.insert("Frquence",null, cv2);
         cv2.put("Type", "journalière");
@@ -80,7 +80,7 @@ public class BDHelper extends SQLiteOpenHelper {
         cv2.put("Type", "semestriel");
         db.insert("Frquence",null, cv2);
         cv2.put("Type", "annuel");
-        db.insert("Frquence",null, cv2);
+        db.insert("Frquence",null, cv2);*/
     }
 
     @Override

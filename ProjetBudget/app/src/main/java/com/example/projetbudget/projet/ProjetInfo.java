@@ -150,7 +150,7 @@ public class ProjetInfo extends AppCompatActivity {
                             ajoutText.setText("Vous n'avez plus assez de fond dans votre porte-monnaie");
                         }
                     } else {
-                        ajoutText.setText("Seule les chiffres sont autorisés");
+                        ajoutText.setText("Chiffre uniquement");
                     }
                 }
                 Log.i("TestProjetInfo", "actu1 = " + actu);

@@ -23,23 +23,30 @@
 
     <Button
         android:id="@+id/gd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="55dp"
+        android:background="@drawable/normbutton"
+        android:textColor="@color/white"
+
         android:text="Créer une Operation"
         app:layout_constraintBottom_toBottomOf="@+id/section_label_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gp" />
+        app:layout_constraintTop_toBottomOf="@+id/gp"
+        app:layout_constraintVertical_bias="0.509" />
 
     <Button
         android:id="@+id/gp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="55dp"
+        android:background="@drawable/normbutton"
+        android:textColor="@color/white"
         android:text="Créer un Projet"
-        app:layout_constraintBottom_toTopOf="@+id/gd"
+        app:layout_constraintBottom_toBottomOf="@+id/section_label_main"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVGDP" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/TVGDP"
@@ -47,9 +54,22 @@
         android:layout_height="wrap_content"
         android:text="Porte monnaie"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/gp"
+        app:layout_constraintBottom_toBottomOf="@+id/section_label_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="218dp"
+        android:layout_height="175dp"
+        android:src="@drawable/m9y422"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVGDP"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
