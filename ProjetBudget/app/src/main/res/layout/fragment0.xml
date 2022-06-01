@@ -27,7 +27,6 @@
         android:layout_height="55dp"
         android:background="@drawable/normbutton"
         android:textColor="@color/white"
-
         android:text="Créer une Operation"
         app:layout_constraintBottom_toBottomOf="@+id/section_label_main"
         app:layout_constraintEnd_toEndOf="parent"

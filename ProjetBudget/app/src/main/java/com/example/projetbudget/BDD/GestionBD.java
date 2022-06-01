@@ -31,8 +31,8 @@ public class GestionBD {
     public void creerValeur(String valeur) {
         ContentValues cv = new ContentValues();
         cv.put("valeur",valeur);
-        maBase.delete("bujetTotal",null, null);
-        maBase.insert("bujetTotal",null, cv);
+        maBase.delete("budjetTotal",null, null);
+        maBase.insert("budjetTotal",null, cv);
     }
 
     public String donnerLaValeur() {
@@ -51,7 +51,7 @@ public class GestionBD {
         int intres = Integer.parseInt(res);
         int intvaleur = Integer.parseInt(valeur);
         int calc = intres-intvaleur;
-        Log.i("TestBD_valeurMoins","valeur apré calcul "+calc);
+        Log.i("TestBD_valeurMoins","valeur après calcul "+calc);
         creerValeur(String.valueOf(calc));
     }
 
@@ -61,18 +61,18 @@ public class GestionBD {
         int intres = Integer.parseInt(res);
         int intvaleur = Integer.parseInt(valeur);
         int calc = intres+intvaleur;
-        Log.i("TestBD_valeurPlus","valeur apré calcul "+calc);
+        Log.i("TestBD_valeurPlus","valeur après calcul "+calc);
         creerValeur(String.valueOf(calc));
     }
 
     public void videValeur() {
-        maBase.delete("bujetTotal",null, null);
+        maBase.delete("budjetTotal",null, null);
     }
 
     public ArrayList<TypeOperation> getCateg(){
         Log.i("TestBD_getCateg","ouverture de getCateg");
         ArrayList<TypeOperation> Categ = new ArrayList<TypeOperation>();
-        Log.i("TestBD_getCateg","appré ArryList");
+        Log.i("TestBD_getCateg","après ArryList");
         String req1 = "select IdCateg from Categorie";
         Cursor cursor1 = maBase.rawQuery(req1,null,null);
         Log.i("TestBD_getCateg","cursor1 : ");
@@ -96,7 +96,7 @@ public class GestionBD {
     public ArrayList<TypeFrequence> getFrequ() {
         Log.i("TestBD_getFrequ", "ouverture de getCateg");
         ArrayList<TypeFrequence> Frequ = new ArrayList<TypeFrequence>();
-        Log.i("TestBD_getFrequ", "appré ArryList");
+        Log.i("TestBD_getFrequ", "après ArryList");
         String req1 = "select IdFrequ from Frquence";
         Cursor cursor1 = maBase.rawQuery(req1, null, null);
         Log.i("TestBD_getFrequ", "cursor1 : ");
@@ -204,7 +204,7 @@ public class GestionBD {
         maBase.delete("Projet","Nom=?", new String[]{nom});
     }
 
-    //Les info des projet
+    //Les info des projets
     //=============================================================================
     public String[] NomProjet() {
         String req = "select Nom from Projet";
@@ -249,7 +249,7 @@ public class GestionBD {
     }
     //=====================================================================================
 
-    // Les info des operation
+    // Les infos des operations
     //=====================================================================================
     public String[] NomOperation() {
         String req = "select NomOperation from Operation";

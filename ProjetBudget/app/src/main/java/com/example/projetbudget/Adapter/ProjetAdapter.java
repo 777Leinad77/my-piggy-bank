@@ -13,12 +13,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projetbudget.R;
-import com.example.projetbudget.activity.MainActivity;
 import com.example.projetbudget.projet.ProjetInfo;
 
 public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHolder> {
 
-    private MainActivity LeContext;
     String[] data1, data2, data3;
     Context context;
 
@@ -52,7 +50,7 @@ public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHold
                 intent.putExtra("data2",data2[position]);
                 intent.putExtra("data3",data3[position]);
                 context.startActivity(intent);
-                //fin();
+
             }
         });
     }
@@ -76,7 +74,5 @@ public class ProjetAdapter extends RecyclerView.Adapter<ProjetAdapter.MyViewHold
             constraintLayout = itemView.findViewById(R.id.CLProjet);
         }
     }
-    private void fin(){
-        LeContext.finish();
-    }
+
 }

@@ -49,7 +49,7 @@ public class PlaceholderFragment extends Fragment {
         GDP = rootView.findViewById(R.id.TVGDP);
 
         sgbd.open();
-        GDP.setText(sgbd.donnerLaValeur());
+        GDP.setText(sgbd.donnerLaValeur() + '€');
         sgbd.close();
 
         intent = new Intent(this.getContext(), CreationProjet.class);

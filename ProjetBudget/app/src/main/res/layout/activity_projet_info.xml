@@ -79,15 +79,17 @@
         android:id="@+id/BProjModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="230dp"
         android:layout_marginBottom="300dp"
+        android:background="@drawable/normbutton"
         android:text="Modifier"
         android:textColor="@color/white"
-        android:background="@drawable/normbutton"
-        app:layout_constraintBottom_toTopOf="@+id/BProjetSubmit"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toEndOf="@+id/TVNom"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013" />
 
     <TextView
         android:id="@+id/TVAjout"
