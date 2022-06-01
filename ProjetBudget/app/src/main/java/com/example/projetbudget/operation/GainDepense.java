@@ -54,9 +54,9 @@ public class GainDepense extends AppCompatActivity implements AdapterView.OnItem
         RB = (RadioButton)findViewById(R.id.RBGain);
         nom = (EditText)findViewById(R.id.ETNomOpeP);
         montant = (EditText)findViewById(R.id.ETMontantOpeP);
-        ENom = (TextView)findViewById(R.id.erreurNomP);
-        EMontant = (TextView)findViewById(R.id.erreurMontantP);
-        ETypeCateg = (TextView)findViewById(R.id.erreurTypeCategP);
+        ENom = (TextView)findViewById(R.id.nomOpeP);
+        EMontant = (TextView)findViewById(R.id.montantOpeP);
+        ETypeCateg = (TextView)findViewById(R.id.typeOpeP);
 
 
         sgbd.open();
@@ -145,6 +145,8 @@ public class GainDepense extends AppCompatActivity implements AdapterView.OnItem
                         sgbd.valeurMoins(montantValeur);
                     }
                     sgbd.close();
+                    //Log.i("changement", TheThis);
+
                     startActivity(intent);
                     fin();
                 }
