@@ -22,7 +22,7 @@ public class PlaceholderFragment1 extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
 
-    RecyclerView RVProject;
+    RecyclerView RVProjet;
     String[] S1, S2, S3;
 
     public static PlaceholderFragment1 newInstance(int index) {
@@ -40,7 +40,7 @@ public class PlaceholderFragment1 extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment1, container, false);
 
-        RVProject = rootView.findViewById(R.id.RVProject);
+        RVProjet = rootView.findViewById(R.id.RVProjet);
 
         GestionBD sgbd = new GestionBD(getContext());
 
@@ -53,8 +53,8 @@ public class PlaceholderFragment1 extends Fragment {
         sgbd.close();
 
         ProjetAdapter projetAdapter = new ProjetAdapter(getContext(), S1, S2, S3);
-        RVProject.setAdapter(projetAdapter);
-        RVProject.setLayoutManager(new LinearLayoutManager(getContext()));
+        RVProjet.setAdapter(projetAdapter);
+        RVProjet.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return rootView;
     }

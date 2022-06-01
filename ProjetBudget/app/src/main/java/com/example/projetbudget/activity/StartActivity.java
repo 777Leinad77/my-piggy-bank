@@ -65,7 +65,7 @@ public class StartActivity extends AppCompatActivity {
                             startActivity(activity2);
                             fin();
                         } else {
-                            erreur.setText("Un des caractère n'est pas un chiffre");
+                            erreur.setText("Un des caractères n'est pas un chiffre");
                         }
                     }
                 }

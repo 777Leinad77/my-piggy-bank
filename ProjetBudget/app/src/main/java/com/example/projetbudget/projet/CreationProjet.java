@@ -83,9 +83,9 @@ public class CreationProjet extends AppCompatActivity {
                         eEstim.setText("L'estimation doit comporter au moins un caractère");
                         bool3 = false;
                     }
-                    Log.i("TestCreationProject", "test1 = " + bool1 + ", test2 = " + bool2 + ", test3 = " + bool3);
+                    Log.i("TestCreationProjet", "test1 = " + bool1 + ", test2 = " + bool2 + ", test3 = " + bool3);
                     if (bool1 == true && bool3 == true && bool2 == true) {
-                        Log.i("TestCreationProject", "nom = " + PNom + ", montant = " + PMontant);
+                        Log.i("TestCreationProjet", "nom = " + PNom + ", montant = " + PMontant);
                         sgbd.open();
                         sgbd.nouvProjet(PNom, intMontant, null);
                         sgbd.close();

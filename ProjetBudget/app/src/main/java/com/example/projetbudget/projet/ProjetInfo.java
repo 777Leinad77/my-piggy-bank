@@ -200,7 +200,7 @@ public class ProjetInfo extends AppCompatActivity {
                     sgbd.valeurMoins(Integer.toString(memoir));
                     sgbd.close();
                     memoir = 0;
-                    Toast.makeText(theThis, "les informations on bien été enregistré", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(theThis, "les informations ont bien été enregistrées", Toast.LENGTH_SHORT).show();
                 }
             }
         });

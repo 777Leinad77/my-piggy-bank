@@ -31,8 +31,8 @@ public class GestionBD {
     public void creerValeur(String valeur) {
         ContentValues cv = new ContentValues();
         cv.put("valeur",valeur);
-        maBase.delete("budjetTotal",null, null);
-        maBase.insert("budjetTotal",null, cv);
+        maBase.delete("bujetTotal",null, null);
+        maBase.insert("bujetTotal",null, cv);
     }
 
     public String donnerLaValeur() {
@@ -51,7 +51,7 @@ public class GestionBD {
         int intres = Integer.parseInt(res);
         int intvaleur = Integer.parseInt(valeur);
         int calc = intres-intvaleur;
-        Log.i("TestBD_valeurMoins","valeur après calcul "+calc);
+        Log.i("TestBD_valeurMoins","valeur apré calcul "+calc);
         creerValeur(String.valueOf(calc));
     }
 
@@ -61,18 +61,18 @@ public class GestionBD {
         int intres = Integer.parseInt(res);
         int intvaleur = Integer.parseInt(valeur);
         int calc = intres+intvaleur;
-        Log.i("TestBD_valeurPlus","valeur après calcul "+calc);
+        Log.i("TestBD_valeurPlus","valeur apré calcul "+calc);
         creerValeur(String.valueOf(calc));
     }
 
     public void videValeur() {
-        maBase.delete("budjetTotal",null, null);
+        maBase.delete("bujetTotal",null, null);
     }
 
     public ArrayList<TypeOperation> getCateg(){
         Log.i("TestBD_getCateg","ouverture de getCateg");
         ArrayList<TypeOperation> Categ = new ArrayList<TypeOperation>();
-        Log.i("TestBD_getCateg","après ArryList");
+        Log.i("TestBD_getCateg","appré ArryList");
         String req1 = "select IdCateg from Categorie";
         Cursor cursor1 = maBase.rawQuery(req1,null,null);
         Log.i("TestBD_getCateg","cursor1 : ");
@@ -96,7 +96,7 @@ public class GestionBD {
     public ArrayList<TypeFrequence> getFrequ() {
         Log.i("TestBD_getFrequ", "ouverture de getCateg");
         ArrayList<TypeFrequence> Frequ = new ArrayList<TypeFrequence>();
-        Log.i("TestBD_getFrequ", "après ArryList");
+        Log.i("TestBD_getFrequ", "appré ArryList");
         String req1 = "select IdFrequ from Frquence";
         Cursor cursor1 = maBase.rawQuery(req1, null, null);
         Log.i("TestBD_getFrequ", "cursor1 : ");
@@ -204,7 +204,7 @@ public class GestionBD {
         maBase.delete("Projet","Nom=?", new String[]{nom});
     }
 
-    //Les info des projets
+    //Les info des projet
     //=============================================================================
     public String[] NomProjet() {
         String req = "select Nom from Projet";
@@ -249,7 +249,7 @@ public class GestionBD {
     }
     //=====================================================================================
 
-    // Les infos des operations
+    // Les info des operation
     //=====================================================================================
     public String[] NomOperation() {
         String req = "select NomOperation from Operation";
@@ -276,7 +276,26 @@ public class GestionBD {
             Ltype[i] = cursor.getString(1);
             i = i + 1;
         }
-
+        //Test échouer
+        /*String req1 = "select NomOperation, IdCateg from Operation";
+        Cursor cursor1 = maBase.rawQuery(req1, null, null);
+        String req2 = "select Type, IdCateg from Categorie";
+        Cursor cursor2 = maBase.rawQuery(req2, null, null);
+        String[] Ltype = new String[cursor1.getCount()];
+        int i = 0;
+        Log.i("TestBD_TypeOperation", "cursor.getCount() = " + cursor1.getCount());
+        while (cursor1.moveToNext()) {
+            Log.i("TestBD_TypeOperation", "1");
+            while (cursor2.moveToNext()) {
+                Log.i("TestBD_TypeOperation", "cursor1 = " + cursor1.getString(1) + ", cursor2 = " + cursor2.getString(1));
+                if (cursor1.getString(1) == cursor2.getString(1)) {
+                    Ltype[i] = cursor2.getString(0);
+                    Log.i("TestBD_TypeOperation", "cursor1 = " + cursor1.getString(0) + ", cursor2 = " + cursor2.getString(0));
+                }
+            }
+            cursor2.moveToFirst();
+            i += 1;
+        }*/
         return Ltype;
     }
 
@@ -299,5 +318,5 @@ public class GestionBD {
         }
         return Lmontant;
     }
-
+    //=====================================================================================
 }
