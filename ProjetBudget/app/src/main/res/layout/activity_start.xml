@@ -13,10 +13,11 @@
         android:background="@drawable/startbutton"
         android:text="Valider"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/EDText"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EDText" />
+        app:layout_constraintStart_toStartOf="@+id/EDText"
+        app:layout_constraintTop_toBottomOf="@+id/EDText"
+        app:layout_constraintVertical_bias="0.455" />
 
     <TextView
         android:id="@+id/textErreur"
@@ -42,11 +43,11 @@
         android:layout_width="399dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:text="Bienvenue dans ProjetBudget"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,10 +55,12 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="73dp"
         android:text="Entrée le premier montant de votre &quot;porte monnaie&quot;"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/EDText"
+        app:layout_constraintEnd_toEndOf="@+id/EDText"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/EDText"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 </androidx.constraintlayout.widget.ConstraintLayout>
