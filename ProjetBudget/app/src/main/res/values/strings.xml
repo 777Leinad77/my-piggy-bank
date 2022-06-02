@@ -5,6 +5,8 @@
     <string name="tab_text_3" translatable="false">Historique d opérations</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
+    <string name="easterEgg" />
+    <string name="play_music_btn">sound</string>
 
     <string-array name="SFrequenceP">
         <item>un seul jour</item>

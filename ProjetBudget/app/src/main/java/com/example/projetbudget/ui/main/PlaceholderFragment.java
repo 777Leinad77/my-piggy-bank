@@ -25,12 +25,12 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private MainActivity LeContext;
-
     Intent intent, intent1;
     Button gp, gd;
     TextView GDP;
 
-    public static PlaceholderFragment newInstance( int index) {
+
+    public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
@@ -84,7 +84,9 @@ public class PlaceholderFragment extends Fragment {
         super.onDestroyView();
 
     }
-    private void fin(){
+
+    private void fin() {
         LeContext.finish();
     }
+
 }
