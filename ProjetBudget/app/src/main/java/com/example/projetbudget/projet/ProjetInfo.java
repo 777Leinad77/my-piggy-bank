@@ -25,8 +25,8 @@ public class ProjetInfo extends AppCompatActivity {
     String data1, data2, data3, nomModif;
     String[] nomRecup;
     int actu, testActu, memoir;
-    Button modif, ajout, retour1, retour2, enregister, finProj, finProjEnd;
-    Intent activityRetour, activityModif;
+    Button modif, ajout, retour1, retour2, enregister, finProj;
+    Intent activityRetour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,10 +122,10 @@ public class ProjetInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v == ajout) {
-                    memoir = memoir + Integer.parseInt(ajoutProj.getText().toString());
                     if (ajoutProj.getText().toString().length()<=0){
                         ajoutText.setText("Il n'y a pas de somme à ajouter");
                     } else if (ajoutProj.getText().toString().matches("^[0-9]*")) {
+                        memoir = memoir + Integer.parseInt(ajoutProj.getText().toString());
                         sgbd.open();
                         if (Integer.parseInt(sgbd.donnerLaValeur())>memoir) {
                             testActu = actu + Integer.parseInt(ajoutProj.getText().toString());
@@ -156,7 +156,6 @@ public class ProjetInfo extends AppCompatActivity {
                 Log.i("TestProjetInfo", "actu1 = " + actu);
             }
         });
-
 
         retour1.setOnClickListener(new View.OnClickListener() {
             @Override
