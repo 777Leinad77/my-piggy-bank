@@ -50,8 +50,6 @@ public class CreationProjet extends AppCompatActivity {
                     String PMontant = montant.getText().toString();
                     String PEstim = estim.getText().toString();
 
-                    int intMontant = Integer.parseInt(PMontant);;
-
                     boolean bool1;
                     if (PNom.length()>0) {
                         eNom.setText("");
@@ -61,8 +59,9 @@ public class CreationProjet extends AppCompatActivity {
                         bool1 = false;
                     }
 
-                    boolean bool2;
+                    boolean bool2 = false;
                     if (PMontant.length()>0) {
+                    int intMontant = Integer.parseInt(PMontant);
                         if(intMontant>0) {
                             eMontant.setText("");
                             bool2 = true;
@@ -85,6 +84,7 @@ public class CreationProjet extends AppCompatActivity {
                     }
                     Log.i("TestCreationProjet", "test1 = " + bool1 + ", test2 = " + bool2 + ", test3 = " + bool3);
                     if (bool1 == true && bool3 == true && bool2 == true) {
+                        int intMontant = Integer.parseInt(PMontant);
                         Log.i("TestCreationProjet", "nom = " + PNom + ", montant = " + PMontant);
                         sgbd.open();
                         sgbd.nouvProjet(PNom, intMontant, null);

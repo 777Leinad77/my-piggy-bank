@@ -37,17 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ETMontantProjet" />
 
-    <EditText
-        android:id="@+id/ETMontantProjet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/ETEstimationProjet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/ETNomProjet" />
-
     <Button
         android:id="@+id/BCreationProjet"
         android:layout_width="wrap_content"
@@ -116,5 +105,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/BCreationProjet"
         app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/ETMontantProjet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/ETEstimationProjet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/ETNomProjet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
