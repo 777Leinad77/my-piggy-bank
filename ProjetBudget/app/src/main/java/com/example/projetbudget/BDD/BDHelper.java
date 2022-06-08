@@ -42,6 +42,7 @@ public class BDHelper extends SQLiteOpenHelper {
         req = "create table Projet(Nom text, "
                 + "Objectif INTEGER, "
                 + "ObjecActuelle INTEGER, "
+                + "Niveau INTEGER, "
                 + "DateCréation Date, "
                 + "DateObjectif Date,"
                 + "IdProj Integer PRIMARY KEY autoincrement "

@@ -160,15 +160,17 @@ public class GestionBD {
         cv.put("Nom", nom);
         cv.put("Objectif", montant);
         cv.put("ObjecActuelle", 0);
+        cv.put("Niveau", 1);
         cv.put("DateCréation", String.valueOf(date));
         cv.put("DateObjectif", dateFin);
         maBase.insert("Projet",null, cv);
     }
 
-    public void enregProjet(String nom, String nonModi, int actu) {
+    public void enregProjet(String nom, String nonModi, int actu, int valeur) {
         ContentValues cv = new ContentValues();
         cv.put("Nom", nonModi);
         cv.put("ObjecActuelle", actu);
+        cv.put("Niveau", valeur);
         maBase.update("Projet", cv, "Nom=?", new String[]{nom});
     }
 
@@ -246,6 +248,20 @@ public class GestionBD {
             i += 1;
         }
         return Lobjec;
+    }
+
+    public String[] NiveauProjet() {
+        String req = "select Niveau from Projet";
+        Cursor cursor = maBase.rawQuery(req, null, null);
+        String[] Lnom = new String[cursor.getCount()];
+        int i = 0;
+        Log.i("TestBD_NiveauProjet", "cursor = " + cursor.getCount());
+        while (cursor.moveToNext()) {
+            Log.i("TestBD_NiveauProjet", "cursor = " + cursor.getString(0));
+            Lnom[i] = cursor.getString(0);
+            i += 1;
+        }
+        return Lnom;
     }
     //=====================================================================================
 

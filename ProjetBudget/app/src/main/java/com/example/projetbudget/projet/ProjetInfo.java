@@ -24,7 +24,7 @@ public class ProjetInfo extends AppCompatActivity {
     EditText ajoutProj;
     String data1, data2, data3, nomModif;
     String[] nomRecup;
-    int actu, testActu, memoir;
+    int actu, testActu, memoir, couleur, niveau;
     Button modif, ajout, retour1, retour2, enregister, finProj;
     Intent activityRetour;
 
@@ -183,6 +183,7 @@ public class ProjetInfo extends AppCompatActivity {
             public void onClick(View v) {
                 if (v == enregister) {
                     Log.i("TestProjetInfo", "data1 = " + data1 + ", nomModif = " + nomModif + ", actu = " + actu);
+                    sgbd.open();
                     if (actu == Integer.parseInt(data3)) {
                         ajout.setVisibility(View.INVISIBLE);
                         ajoutProj.setVisibility(View.INVISIBLE);
@@ -194,8 +195,23 @@ public class ProjetInfo extends AppCompatActivity {
                         finProj.setVisibility(View.VISIBLE);
                         retour2.setVisibility(View.VISIBLE);
                     }
-                    sgbd.open();
-                    sgbd.enregProjet(data1, nomModif, actu);
+                    Log.i("TestProjetInfo", ""+actu);
+                    niveau = 1;
+                    if (actu != 0) {
+                        couleur = 100 * actu / Integer.parseInt(data3);
+                        Log.i("TestProjetInfo", "1 if " + couleur);
+                        if (couleur<=50){
+                            Log.i("TestProjetInfo", "2 if " + couleur);
+                            niveau = 2;
+                        } else if (couleur<100){
+                            Log.i("TestProjetInfo", "3 if " + couleur);
+                            niveau = 3;
+                        } else {
+                            Log.i("TestProjetInfo", "else " + couleur);
+                            niveau = 4;
+                        }
+                    }
+                    sgbd.enregProjet(data1, nomModif, actu, niveau);
                     sgbd.valeurMoins(Integer.toString(memoir));
                     sgbd.close();
                     memoir = 0;

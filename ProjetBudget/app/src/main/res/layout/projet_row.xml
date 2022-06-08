@@ -9,19 +9,21 @@
     android:id="@+id/CLProjet">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/CVCouleur"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="#9C27B0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/TVSlache"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="/"
@@ -45,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="Montant Actuelle"
                 app:layout_constraintBottom_toBottomOf="@+id/TVObjectProjet"
-                app:layout_constraintEnd_toStartOf="@+id/textView10"
+                app:layout_constraintEnd_toStartOf="@+id/TVSlache"
                 app:layout_constraintTop_toTopOf="@+id/TVObjectProjet" />
 
             <TextView
